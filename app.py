@@ -5,6 +5,7 @@ import dash_html_components as html
 from dash.dependencies import Output, Event
 import plotly.graph_objs as go
 import pymongo
+import os
 
 
 def fill_x_y_lists(db, cluster, x, y, limit):
@@ -139,6 +140,7 @@ def generate_figure():
 # Initialize the Dash app
 app = dash.Dash(__name__)
 server = app.server
+server.secret_key = os.environ.get('SECRET_KEY', 'my-secret-key')
 
 # Ready the database
 uri = 'mongodb://readonly:36677ee5c75a174cf07b6f88b816a5c4@ds157320.mlab.com:57320/crc-status'
