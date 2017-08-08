@@ -137,7 +137,8 @@ def generate_figure():
 
 
 # Initialize the Dash app
-app = dash.Dash()
+app = dash.Dash(__name__)
+server = app.server
 
 # Ready the database
 uri = 'mongodb://readonly:36677ee5c75a174cf07b6f88b816a5c4@ds157320.mlab.com:57320/crc-status'
