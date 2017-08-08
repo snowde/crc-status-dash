@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -140,7 +139,6 @@ def generate_figure():
 # Initialize the Dash app
 app = dash.Dash(__name__)
 server = app.server
-server.secret_key = os.environ.get('SECRET_KEY', 'my-secret-key')
 
 # Ready the database
 uri = 'mongodb://readonly:36677ee5c75a174cf07b6f88b816a5c4@ds157320.mlab.com:57320/crc-status'
