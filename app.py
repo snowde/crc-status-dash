@@ -152,10 +152,13 @@ if limit > 24:
 
 app.layout = html.Div(children = [
     html.H1(children = 'CRC Status'),
-    dcc.Graph(id = 'crc-status'),
+    dcc.Graph(
+        id = 'crc-status',
+        figure = generate_figure()
+    ),
     dcc.Interval(
         id = 'interval-component',
-        interval = 5 * 1000
+        interval = 15 * 60 * 1000
     )
 ])
 
