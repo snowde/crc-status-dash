@@ -155,7 +155,7 @@ app.layout = html.Div(children = [
     dcc.Graph(id = 'crc-status'),
     dcc.Interval(
         id = 'interval-component',
-        interval = 30 * 1000
+        interval = 5 * 1000
     )
 ])
 
