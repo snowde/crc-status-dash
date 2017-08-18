@@ -18,6 +18,37 @@ def fill_x_y_lists(db, cluster, x, y, limit):
             return [cluster, item['allocated'], item['total']]
 
 
+def generate_table():
+    return html.Table(
+        # Header
+        [html.Tr([
+            html.Th(x) for x in ["Cluster", "Allocated Cores", "Total Cores"]
+        ])] +
+        # Body
+        [html.Tr([
+            html.Td(x) for x in get_table_entry('smp')
+        ])] +
+        [html.Tr([
+            html.Td(x) for x in get_table_entry('gpu')
+        ])] +
+        [html.Tr([
+            html.Td(x) for x in get_table_entry('mpi')
+        ])] +
+        [html.Tr([
+            html.Td(x) for x in get_table_entry('htc')
+        ])] +
+        [html.Tr([
+            html.Td(x) for x in get_table_entry('ib')
+        ])]
+    )
+
+
+def get_table_entry(cluster):
+    cursor = db['status'].find({'cluster': cluster}).sort('_id', pymongo.DESCENDING).limit(1)
+    for item in list(cursor):
+        return cluster, item['allocated'], item['total']
+
+
 def generate_figure():
     # A list of lists
     items = []
@@ -151,21 +182,33 @@ if limit > 24:
     limit = 24
 
 app.layout = html.Div(children = [
-    html.H1(children = 'CRC Status'),
-    dcc.Graph(
-        id = 'crc-status',
-        figure = generate_figure()
-    ),
-    dcc.Interval(
-        id = 'interval-component',
-        interval = 15 * 60 * 1000
-    )
-])
+        html.H1(children = 'CRC Status'),
+        dcc.Graph(
+            id = 'crc-graph',
+            figure = generate_figure()
+        ),
+        html.Table(
+            id = 'crc-table',
+            children = generate_table(),
+        ),
+        dcc.Interval(
+            id = 'interval-component',
+            interval = 15 * 60 * 1000
+        )
+    ]
+)
 
-@app.callback(Output('crc-status', 'figure'),
+app.css.append_css({'external_url': "https://codepen.io/anon/pen/LjQejb.css"})
+
+@app.callback(Output('crc-graph', 'figure'),
               events=[Event('interval-component', 'interval')])
-def update_crc_status():
+def update_crc_graph():
     return generate_figure()
+
+@app.callback(Output('crc-table', 'children'),
+              events=[Event('interval-component', 'interval')])
+def update_crc_table():
+    return generate_table()
 
 if __name__ == '__main__':
     app.run_server()
