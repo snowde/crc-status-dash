@@ -169,7 +169,7 @@ def generate_figure():
 
 def generate_layout():
     return html.Div(children = [
-            html.H1(children = 'CRC Status'),
+            #html.H1(children = 'CRC Status'),
             dcc.Graph(
                 id = 'crc-graph',
                 figure = generate_figure()
