@@ -7,6 +7,7 @@ import pymongo
 import os
 
 
+# For a cluster, query, filter, and return the data needed by plotly
 def fill_x_y_lists(db, cluster, x, y, limit):
     cursor = db['status'].find({'cluster': cluster}).sort('_id', pymongo.DESCENDING).limit(limit)
     counter = 0
@@ -18,6 +19,9 @@ def fill_x_y_lists(db, cluster, x, y, limit):
             return [cluster, item['allocated'], item['total']]
 
 
+# Generate the table which prints the cluster, allocated and total cores
+# -> I had a hard time figuring out how to write an additional list comprehension
+# ->  to deal with the loop over each cluster
 def generate_table():
     return html.Table(
         # Header
@@ -43,12 +47,15 @@ def generate_table():
     )
 
 
+# For the table, I only need one entry from the database
 def get_table_entry(cluster):
     cursor = db['status'].find({'cluster': cluster}).sort('_id', pymongo.DESCENDING).limit(1)
     for item in list(cursor):
         return cluster, item['allocated'], item['total']
 
 
+# Get all the data to build our plot, also clean out any data points
+# -> which are not shared by each cluster
 def generate_figure():
     # A list of lists
     items = []
@@ -167,6 +174,7 @@ def generate_figure():
     return {'data': traces, 'layout': layout}
 
 
+# The layout function, this allows for the page updates when navigating to the site
 def generate_layout():
     return html.Div(children = [
             #html.H1(children = 'CRC Status'),
@@ -189,6 +197,7 @@ def generate_layout():
 # Initialize the Dash app
 app = dash.Dash(__name__)
 server = app.server
+# -> This part is important for Heroku deployment
 server.secret_key = os.environ.get('SECRET_KEY', 'my-secret-key')
 
 # Ready the database
@@ -197,23 +206,27 @@ client = pymongo.MongoClient(uri)
 db = client.get_default_database()
 
 # The limit of datapoints to return
+# -> I don't want more than 24 points at a time
 limit = db['status'].find({'cluster': 'smp'}).count()
 if limit > 24:
     limit = 24
 
+# The app layout w/ custom CSS for the table
 app.layout = generate_layout
-
 app.css.append_css({'external_url': "https://codepen.io/anon/pen/LjQejb.css"})
 
+# Update the plot every interval tick
 @app.callback(Output('crc-graph', 'figure'),
               events=[Event('interval-component', 'interval')])
 def update_crc_graph():
     return generate_figure()
 
+# Update the table every interval tick
 @app.callback(Output('crc-table', 'children'),
               events=[Event('interval-component', 'interval')])
 def update_crc_table():
     return generate_table()
 
+# Our main function
 if __name__ == '__main__':
     app.run_server()
