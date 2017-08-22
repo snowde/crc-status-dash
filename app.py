@@ -167,6 +167,25 @@ def generate_figure():
     return {'data': traces, 'layout': layout}
 
 
+def generate_layout():
+    return html.Div(children = [
+            html.H1(children = 'CRC Status'),
+            dcc.Graph(
+                id = 'crc-graph',
+                figure = generate_figure()
+            ),
+            html.Table(
+                id = 'crc-table',
+                children = generate_table(),
+            ),
+            dcc.Interval(
+                id = 'interval-component',
+                interval = 5 * 60 * 1000
+            )
+        ]
+    )
+
+
 # Initialize the Dash app
 app = dash.Dash(__name__)
 server = app.server
@@ -182,22 +201,7 @@ limit = db['status'].find({'cluster': 'smp'}).count()
 if limit > 24:
     limit = 24
 
-app.layout = html.Div(children = [
-        html.H1(children = 'CRC Status'),
-        dcc.Graph(
-            id = 'crc-graph',
-            figure = generate_figure()
-        ),
-        html.Table(
-            id = 'crc-table',
-            children = generate_table(),
-        ),
-        dcc.Interval(
-            id = 'interval-component',
-            interval = 5 * 60 * 1000
-        )
-    ]
-)
+app.layout = generate_layout
 
 app.css.append_css({'external_url': "https://codepen.io/anon/pen/LjQejb.css"})
 
