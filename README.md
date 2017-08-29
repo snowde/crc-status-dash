@@ -16,3 +16,8 @@ This was not meant as an administrative tool, but as an aesthetically pleasing p
 #### Data Collection
 
 Data collection script is `mlab-instantaneous.py` and is triggered by a cron job.
+
+#### To Do
+
+1. Clean up code a bit
+2. Add HTML title and icon
