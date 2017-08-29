@@ -163,7 +163,7 @@ def generate_figure():
         ),
     ]
     layout = go.Layout(
-        title='CRC Status',
+        title='Cluster Status',
         titlefont={'size': 18},
         yaxis={'ticksuffix': '%', 'title': 'Percent Utilization',
                'titlefont': {'size': 18}, 'tickfont': {'size': 18}},
