@@ -13,7 +13,10 @@ def fill_x_y_lists(db, cluster, x, y, limit):
     counter = 0
     for item in reversed(list(cursor)):
         x[counter] = item['time']
-        y[counter] = 100 * item['allocated'] / item['total']
+        if item['total'] != 0:
+            y[counter] = 100 * item['allocated'] / item['total']
+        else:
+            y[counter] = 0
         counter += 1
         if counter == limit:
             return [cluster, item['allocated'], item['total']]
