@@ -26,7 +26,7 @@ from six.moves import cPickle as pickle #for performance
 import treemap as tm
 
 ticker = "BJRI"
-#######
+###############
 
 ## This is to import csv files from dropbox ####
 
@@ -34,6 +34,7 @@ import pandas as pd
 from stock_narration import describe
 import frames as fm
 from figures import figs
+import donuts_interview as di
 
 ##
 
@@ -172,7 +173,7 @@ app.layout = html.Div([
                 html.Div([
                     #html.H5(
                     ##
-                    #    dict["title"] + " 4-D Report"),
+                    #    dict["title"] + " 4-D Report lo"),
                     html.H5(id='title'),
 
                     html.H6(id='location',
@@ -454,6 +455,45 @@ app.layout = html.Div([
     ], className="page"),
 
     html.Div([  # page 5
+
+        html.A(['Print PDF'],
+               className="button no-print",
+               style={'position': "absolute", 'top': '-40', 'right': '0'}),
+
+        html.Div([  # subpage 2
+
+            # Row 1 (Header)
+
+            html.Div([
+                html.H6(["Employee Analysis"],
+                        className="gs-header gs-table-header padded")]),
+
+            html.Div([
+
+                html.Div([
+                    dcc.Graph(id='difficulty_figs',figure=di.difficulty_fig)
+
+                ], style={'padding-left': '0.8cm','float': 'left'}),
+
+                html.Div([
+                    dcc.Graph(id='experience_figs',figure=di.experience_fig)
+                ], style={'float': 'left'})
+
+            ]),
+
+            html.Div([
+                dcc.Graph(id='offer_figs', figure=di.offer_fig)
+
+            ],style={'margin-bottom': -300})
+
+
+
+        ], className="subpage"),
+
+    ], className="page"),
+
+
+    html.Div([  # page 5#
 
             html.A(['Print PDF'],
                    className="button no-print",
@@ -770,7 +810,7 @@ def update_desc(the_location, the_benchmark, clicks):
 
 def update_title(the_location, the_benchmark, clicks):
     if clicks % 2 == 0:
-        title = dict["title"] + " 4-D Report"
+        title = dict["title"] + " 4-D Reports"
     else:
         title = str(the_benchmark) + " 4-D Report"
     return title
@@ -948,4 +988,5 @@ def display_content(value):
 
 # Our main function
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
+    #app.run_server()
