@@ -499,53 +499,6 @@ app.layout = html.Div([
     ], className="page"),
 
 
-    html.Div([  # page 5#
-
-            html.A(['Print PDF'],
-                   className="button no-print",
-                   style={'position': "absolute", 'top': '-40', 'right': '0'}),
-
-            html.Div([  # subpage 2
-
-                # Row 1 (Header)
-
-                    html.Div([
-                        html.H6(["Employee Analysis"],
-                                className="gs-header gs-table-header padded")]),
-
-                        gc.layout,
-
-        ], className="subpage" ),
-
-    ],className="page"),
-
-    html.Div([  # page 4
-
-        html.A(['Print PDF'],
-               className="button no-print",
-               style={'position': "absolute", 'top': '-40', 'right': '0'}),
-
-        html.Div([  # subpage 2
-
-            # Row 1 (Header)
-
-            html.Div([
-                html.H6(["Customer Analysis"],
-                        className="gs-header gs-table-header padded")]),
-
-            dcc.Graph(figure=fwc.four_figs(), id='words_one', config={'displayModeBar': False},
-                      style={'padding-left': '0cm','margin-right': '100px','border': '0', 'width': "100%", 'height': "550"}),
-
-        ], className="subpage"),
-
-        # Row 2
-
-        html.Div(html.P(inp.exec, style={"padding-top": "1mm"}))
-
-    ], className="page"),
-
-
-
     html.Div([  # page 5
 
         html.A(['Print PDF'],
