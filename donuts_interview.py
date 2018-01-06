@@ -97,6 +97,8 @@ trace2 = {
 
 inter_2 = inter[inter["Interview Date"] > "2013-04-06"]
 
+inter_2.iloc[-1,inter_2.columns.get_loc("Interview Date")] = inter_2.iloc[-1,inter_2.columns.get_loc("Interview Date")] + timedelta(180)
+
 trace3 = {
     "x": inter_2["Interview Date"],
     "y": inter_2["perc_acc"],

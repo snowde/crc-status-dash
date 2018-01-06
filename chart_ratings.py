@@ -238,3 +238,30 @@ fig_sha = dict(data=share_data, layout=layout)
 
 
 fig_cus = dict(data=yep, layout=layout)
+
+
+
+# Used elsewhere
+
+
+from scipy import signal
+glassdoor["ben_smooth"] = signal.savgol_filter(glassdoor["Final_Comp Benefits"], 199, 3)
+
+trace_cbe_smoothed = go.Scatter(
+    x=glassdoor["Review Date"],
+    y=glassdoor["ben_smooth"],
+    name = "Smoothed",
+    showlegend = False,
+    legendgroup='Employees',
+    opacity = 0.8)
+
+trace_cbe_new = go.Scatter(
+    x=glassdoor["Review Date"],
+    y=glassdoor["Final_Comp Benefits"],
+    name = "Benefits",
+    legendgroup='Employees',
+    showlegend = False,
+    opacity = 0.8)
+
+
+fig_ben = dict(data=[trace_cbe_new, trace_cbe_smoothed], layout=layout)

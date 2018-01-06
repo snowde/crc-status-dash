@@ -14,6 +14,8 @@ import charting_words as cw
 import frequency_word_chart as fwc
 import glassdoor_chart as gc
 import chart_ratings as cr
+import language_layout as ll
+import compensation_layout as cl
 
 from plotly import graph_objs as go
 from datetime import datetime as dt
@@ -35,6 +37,7 @@ from stock_narration import describe
 import frames as fm
 from figures import figs
 import donuts_interview as di
+import employee_layout as el
 
 ##
 
@@ -154,7 +157,7 @@ colors = {
     'text': '#7FDBFF'
 }
 
-
+app.config['suppress_callback_exceptions']=True
 # Describe the layout, or the UI, of the app
 app.layout = html.Div([
 
@@ -359,7 +362,7 @@ app.layout = html.Div([
                                           {'label':"Customers" , 'value':"Customers" },
                                           {'label':"Search" , 'value':"Search" },
                                     ],
-                                    value=3,
+                                    value="Overall",
                                     id='tabs'
                                 ),
                                 html.Div(id='tab-output')
@@ -468,24 +471,27 @@ app.layout = html.Div([
                 html.H6(["Employee Analysis"],
                         className="gs-header gs-table-header padded")]),
 
-            html.Div([
-
-                html.Div([
-                    dcc.Graph(id='difficulty_figs',figure=di.difficulty_fig)
-
-                ], style={'padding-left': '0.8cm','float': 'left'}),
-
-                html.Div([
-                    dcc.Graph(id='experience_figs',figure=di.experience_fig)
-                ], style={'float': 'left'})
-
-            ]),
+            html.Br([]),
 
             html.Div([
-                dcc.Graph(id='offer_figs', figure=di.offer_fig)
+                dcc.Tabs(
+                    tabs=[{'label':"Interview" , 'value':"Interview" },
+                          {'label':"Sentiment" , 'value':"Sentiment" },
+                          {'label':"Compensation" , 'value':"Compensation" },
+                          {'label':"Jobs Map" , 'value':"Customers" },
+                          {'label':"Search" , 'value':"Search" },
+                    ],
+                    value="Interview",
+                    id='tabs-employee'
+                ),
+                html.Div(id='tab-output-employee'),
 
-            ],style={'margin-bottom': -300})
-
+                    ], style={
+                        'width': '100%',
+                        'fontFamily': 'Sans-Serif',
+                        'margin-left': 'auto',
+                        'margin-right': 'auto'
+                    }),
 
 
         ], className="subpage"),
@@ -970,13 +976,24 @@ def display_content(value):
     elif value== "Employee":
         layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_emp, config={'displayModeBar': False},
                         style={"margin-top": "0mm"})])
-    elif value== "Management":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_mgm, config={'displayModeBar': False},
-                        style={"margin-top": "0mm"})])
-    elif value== "Shareholders":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_sha, config={'displayModeBar': False},
-                        style={"margin-top": "0mm"})])
-    elif value== "Customers":
+
+
+
+    return layout
+
+
+@app.callback(Output('tab-output-employee', 'children'), [Input('tabs-employee', 'value')])
+def display_content(value):
+
+    layout = el.interview_layout
+
+    if value== "Interview":
+        layout = el.interview_layout
+    elif value== "Sentiment":
+        layout = ll.language_layout
+    elif value== "Compensation":
+        layout = cl.compensation_layout
+    elif value== "Job Map":
         layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_cus, config={'displayModeBar': False},
                         style={"margin-top": "0mm"})])
     elif value== "Search":
@@ -985,6 +1002,58 @@ def display_content(value):
 
 
     return layout
+
+@app.callback(Output('tab-output-interview-bottom', 'children'), [Input('tabs-interview-bottom', 'value')])
+def display_content(value):
+
+    layout = el.interview_layout_accepted
+
+    if value== "Accepted":
+        layout = el.interview_layout_accepted
+    elif value== "Positive":
+        layout = el.interview_layout_positive
+    elif value== "Negative":
+        layout = el.interview_layout_negative
+    elif value== "Difficult":
+        layout = el.interview_layout_difficult
+    elif value== "Easy":
+        layout = el.interview_layout_easy
+
+    return layout
+
+@app.callback(Output('tab-output-language', 'children'), [Input('tabs-language', 'value')])
+def display_content(value):
+
+    layout = ll.four_figs_layout
+
+    if value== "Noun":
+        layout = ll.four_figs_layout
+    elif value== "Phrase":
+        layout = ll.phrase_layout
+    elif value== "Sentiment":
+        layout = el.interview_layout_negative
+    elif value== "Map":
+        layout = el.interview_layout_easy
+
+    return layout
+
+@app.callback(Output('tab-output-compensation', 'children'), [Input('tabs-compensation', 'value')])
+def display_content(value):
+
+    layout = ll.four_figs_layout
+
+    if value== "Benefits":
+        layout = cl.benefits_layout
+    elif value== "Salaries":
+        layout = cl.benefits_layout
+    elif value== "Third":
+        layout = cl.benefits_layout
+
+
+    return layout
+
+
+
 
 # Our main function
 if __name__ == '__main__':
