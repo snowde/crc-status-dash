@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbd8cca4-6c0d-4ca1-a491-d3d1aa7994c9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compensation_layout.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ddd.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/employee_layout.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/interview_descriptions.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/interview_processing.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/language_layout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/play_2-checkpoint.ipynb" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/play_2-checkpoint.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chart_ratings.py" afterPath="$PROJECT_DIR$/chart_ratings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donuts_interview.py" afterPath="$PROJECT_DIR$/donuts_interview.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/play_2.ipynb" afterPath="$PROJECT_DIR$/play_2.ipynb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="719" column="42" lean-forward="false" selection-start-line="719" selection-start-column="41" selection-end-line="719" selection-end-column="42" />
+            <state relative-caret-position="129">
+              <caret line="715" column="24" lean-forward="false" selection-start-line="715" selection-start-column="24" selection-end-line="715" selection-end-column="24" />
               <folding>
                 <element signature="e#17#28#0" expanded="true" />
               </folding>
@@ -92,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="employee_layout.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="employee_layout.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/employee_layout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="218">
               <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
@@ -190,9 +179,9 @@
       <find>langua</find>
       <find>sent</find>
       <find>Employee</find>
-      <find>accep</find>
       <find>remove</find>
       <find>Langua</find>
+      <find>accep</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,10 +195,10 @@
         <option value="$PROJECT_DIR$/interview_processing.py" />
         <option value="$PROJECT_DIR$/interview_descriptions.py" />
         <option value="$PROJECT_DIR$/language_layout.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/chart_ratings.py" />
         <option value="$PROJECT_DIR$/employee_layout.py" />
         <option value="$PROJECT_DIR$/compensation_layout.py" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -430,16 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="719" column="42" lean-forward="false" selection-start-line="719" selection-start-column="41" selection-end-line="719" selection-end-column="42" />
-          <folding>
-            <element signature="e#17#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/donuts_interview.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -500,10 +479,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/employee_layout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="218">
           <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="715" column="24" lean-forward="false" selection-start-line="715" selection-start-column="24" selection-end-line="715" selection-end-column="24" />
+          <folding>
+            <element signature="e#17#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
