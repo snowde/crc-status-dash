@@ -111,8 +111,8 @@ layout = html.Div([
         dcc.Dropdown(
             id='goo_ba',
             options=[{'label': r, 'value': v} for r, v in zip(["Good", "Great", "Bad", "Severe"],
-                                                              ["Good", "Great", "Bad", "Severe"])],
-            value="Good",
+                                                              ["good", "great", "bad", "severe"])],
+            value="good",
             clearable=False,
             className="dropper"
         )

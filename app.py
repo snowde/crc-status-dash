@@ -498,6 +498,44 @@ app.layout = html.Div([
 
     ], className="page"),
 
+html.Div([  # page 5
+
+        html.A(['Print PDF'],
+               className="button no-print",
+               style={'position': "absolute", 'top': '-40', 'right': '0'}),
+
+        html.Div([  # subpage 2
+
+            # Row 1 (Header)
+
+            html.Div([
+                html.H6(["Customer Analysis"],
+                        className="gs-header gs-table-header padded")]),
+
+            html.Br([]),
+
+            html.Div([
+                dcc.Tabs(
+                    tabs=[{'label':"Infographic" , 'value':"Infographic" },
+                          {'label':"Map" , 'value':"Map" },
+                          {'label':"Sentiment" , 'value':"Sentiment" },
+                    ],
+                    value="Infographic",
+                    id='tabs-customer'
+                ),
+                html.Div(id='tab-output-customer'),
+
+                    ], style={
+                        'width': '100%',
+                        'fontFamily': 'Sans-Serif',
+                        'margin-left': 'auto',
+                        'margin-right': 'auto'
+                    }),
+
+
+        ], className="subpage"),
+
+    ], className="page"),
 
     html.Div([  # page 5
 
@@ -955,6 +993,23 @@ def display_content(value):
 
 
     return layout
+
+@app.callback(Output('tab-output-customer', 'children'), [Input('tabs-customer', 'value')])
+def display_content(value):
+
+    layout = el.interview_layout
+
+    if value== "Infographic":
+        layout = el.interview_layout
+    elif value== "Map":
+        layout = ll.language_layout
+    elif value== "Sentiment":
+        layout = cl.compensation_layout
+
+
+    return layout
+
+
 
 @app.callback(Output('tab-output-interview-bottom', 'children'), [Input('tabs-interview-bottom', 'value')])
 def display_content(value):
