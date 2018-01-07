@@ -478,7 +478,7 @@ app.layout = html.Div([
                     tabs=[{'label':"Interview" , 'value':"Interview" },
                           {'label':"Sentiment" , 'value':"Sentiment" },
                           {'label':"Compensation" , 'value':"Compensation" },
-                          {'label':"Jobs Map" , 'value':"Customers" },
+                          {'label':"Jobs Map" , 'value':"Jobs Map" },
                           {'label':"Search" , 'value':"Search" },
                     ],
                     value="Interview",
@@ -961,13 +961,24 @@ def display_content(value):
 
     layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_overall, config={'displayModeBar': False},
                                  style={"margin-top": "0mm"})])
-    if value== "Overall":
+    if value == "Overall":
         layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_overall, config={'displayModeBar': False},
-                        style={"margin-top": "0mm"})])
-    elif value== "Employee":
+                                     style={"margin-top": "0mm"})])
+    elif value == "Employee":
         layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_emp, config={'displayModeBar': False},
-                        style={"margin-top": "0mm"})])
-
+                                     style={"margin-top": "0mm"})])
+    elif value == "Management":
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_mgm, config={'displayModeBar': False},
+                                     style={"margin-top": "0mm"})])
+    elif value == "Shareholders":
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_sha, config={'displayModeBar': False},
+                                     style={"margin-top": "0mm"})])
+    elif value == "Customers":
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_cus, config={'displayModeBar': False},
+                                     style={"margin-top": "0mm"})])
+    elif value == "Search":
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_search, config={'displayModeBar': False},
+                                     style={"margin-top": "0mm"})])
 
 
     return layout
