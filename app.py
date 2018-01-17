@@ -1,22 +1,10 @@
 # coding: utf-8
-
 import dash
 from dash.dependencies import Input, Output
 #import dash_core_components2 as dcc2
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_table_experiments as dt
-import multiple_charts as mc
-import input as inp
-import polar_figure as pf
-import polar_figure_2 as pf2
-import charting_words as cw
-import frequency_word_chart as fwc
-import glassdoor_chart as gc
-import chart_ratings as cr
-import language_layout as ll
-import compensation_layout as cl
-
 from plotly import graph_objs as go
 from datetime import datetime as dt
 import json
@@ -25,28 +13,49 @@ import pandas as pd
 import os
 from flask import Flask
 from six.moves import cPickle as pickle #for performance
-import treemap as tm
 
-ticker = "BJRI"
+
+import processing.input as inp
+
+import layout.multiple_charts as mc
+import layout.polar_figure as pf
+import layout.polar_figure_2 as pf2
+import layout.charting_words as cw
+import layout.frequency_word_chart as fwc
+import layout.glassdoor_chart as gc
+import layout.chart_ratings as cr
+import layout.language_layout as ll
+import layout.compensation_layout as cl
+import layout.infograph_layout as inl
+import layout.treemap as tm
+from processing.stock_narration import describe
+import processing.frames as fm
+from layout.figures import figs
+import layout.donuts_interview as di
+import layout.employee_layout as el
+
+### It is important to note that there is no target firm. This is dynamic.
+
+    #To Give Orientation
+
+my_path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.join(my_path, "../input_fields.csv")
+
+input_fields = pd.read_csv(path)
+
+tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
+
+
+ticker_start = input_fields[input_fields["starting"]==1]["ticker"][0]
+
+
 ###############
-
-## This is to import csv files from dropbox ####
-
-import pandas as pd
-from stock_narration import describe
-import frames as fm
-from figures import figs
-import donuts_interview as di
-import employee_layout as el
-
-##
 
 # Initialize the Dash app
 app = dash.Dash(__name__)
 server = app.server
 # -> This part is important for Heroku deployment
 server.secret_key = os.environ.get('SECRET_KEY', 'my-secret-key')
-
 
 
 def db_frame(url):
@@ -76,7 +85,6 @@ def db_frame(url):
 #go
 s_metrics_df = fm.s_metrics_df
 c_metrics_df = fm.c_metrics_df
-
 
 
 r = 5
@@ -137,8 +145,11 @@ def load_dict(filename_):
         ret_di = pd.read_pickle(f)
     return ret_di
 
+my_path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.join(my_path, "data/financial/")
+
 # And the specification of this table
-dict_frames = load_dict('./data.pkl') # Much rather use this one
+dict_frames = load_dict(path + 'data.pkl') # Much rather use this one
 
 
 df_fund_info = pd.read_csv('https://plot.ly/~jackp/17544.csv')
@@ -146,10 +157,28 @@ df_fund_characteristics = pd.read_csv('https://plot.ly/~jackp/17542.csv')
 df_fund_facts = pd.read_csv('https://plot.ly/~jackp/17540.csv')
 df_bond_allocation = pd.read_csv('https://plot.ly/~jackp/17538.csv')
 
-available_benchmarks = ["MENU ETF","Filtered ETF","Chipotle"]
-available_locations = ["All","Jacksonville","Wisconsin","Michigan"]
+start_ticker = input_fields[input_fields["starting"]==1]["ticker"][0]
 
-tickers_loca = {"All":ticker,"Jacksonville":ticker,"Wisconsin":ticker,"Michigan":ticker}
+available_benchmarks = list(input_fields["extra_bench"].dropna().values)
+
+available_benchmarks_1 = list(input_fields["code_or_ticker"].values)
+
+available_benchmarks_1.remove(start_ticker)
+
+for r in available_benchmarks_1:
+    available_benchmarks.append(r)
+
+available_benchmarks
+
+my_path = os.path.abspath(os.path.dirname('__file__'))
+path = os.path.join(my_path, "../data/ratings/" )
+
+locas = pd.read_csv(path + "all_yelps_rates_" + start_ticker + ".csv").columns
+
+
+available_locations = list(locas[1:])
+
+tickers_loca = {"All":ticker_start,"Jacksonville":ticker_start,"Wisconsin":ticker_start,"Michigan":ticker_start}
 tickers_bench ={"MENU ETF":"CMG", "Filtered ETF":"CMG","Chipotle":"CMG"}
 
 colors = {
@@ -954,7 +983,7 @@ def filter2( goo, time, many, norm, bench):
 
     figure = gc.sum_gd(goo, time, many, norm, bench)
     return figure
-##
+###
 
 @app.callback(Output('tab-output', 'children'), [Input('tabs', 'value')])
 def display_content(value):
@@ -1005,13 +1034,15 @@ def display_content(value):
 
     return layout
 
+## Here
+
 @app.callback(Output('tab-output-customer', 'children'), [Input('tabs-customer', 'value')])
 def display_content(value):
 
-    layout = el.interview_layout
+    layout = inl.info_layout
 
     if value== "Infographic":
-        layout = el.interview_layout
+        layout = inl.info_layout
     elif value== "Map":
         layout = ll.language_layout
     elif value== "Sentiment":

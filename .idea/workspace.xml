@@ -2,7 +2,767 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbd8cca4-6c0d-4ca1-a491-d3d1aa7994c9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/name_loader.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/processing/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/processing/sample.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/setup.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/17530.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI-3_corrlong.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI-4_norm_month.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI-7_fiNAL_Normal.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI_corr_week.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI_gd_benefits.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI_gd_dict_ben.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI_gd_interviews.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI_gd_jobs.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI_gd_new.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI_gd_rents.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BJRI_locations.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CE_WB_Sum.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CE_WB_Thing_V1-Copy1.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CE_WB_Thing_V1-Real.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CE_Worst_Best_V1.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CMG_locations.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConsFin.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Customer Employee Report Sans Yelp.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Customer Employee Report With Yelp.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NEW_BJRI_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Procfile copy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/RadialprogressTest.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Spyfu.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Untitled.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Untitled1.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/agg_process.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/all_yelps_rates.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ass_pca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ass_pca.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_All_All_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_All_All_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_All_All_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_All_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_All_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_All_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_Jacksonville_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_allloc_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_allloc_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_allloc_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_alltime_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_alltime_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_alltime_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_ago_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_ago_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_five_years_ago_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_good.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_good_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_good_pro.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_good_pro_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bad_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjri_interviews.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs-restaurant-sanbruno.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_alltime_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_alltime_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_alltime_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_ago_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_ago_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_five_years_ago_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_six month_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_six month_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_six month_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_three_years_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_three_years_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_three_years_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_year_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_year_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_bad_year_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_extra.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_alltime_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_alltime_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_alltime_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_ago_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_ago_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_five_years_ago_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_six month_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_six month_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_six month_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_three_years_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_three_years_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_three_years_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_year_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_year_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_good_year_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_alltime_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_alltime_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_alltime_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_ago_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_ago_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_five_years_ago_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_six month_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_six month_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_six month_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_three_years_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_three_years_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_three_years_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_year_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_year_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_great_year_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_alltime_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_alltime_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_alltime_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_ago_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_ago_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_five_years_ago_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_six month_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_six month_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_six month_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_three_years_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_three_years_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_three_years_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_year_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_year_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bjs_gd_severe_year_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/calc_pca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/calc_pca.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cfs_pca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_bad_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_good_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_great_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cft_gd_severe_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chart_ratings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/charting_words.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_bad_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_good_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_great_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chp_gd_severe_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/comp_df.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/comp_f_df.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/comp_o_df.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compensation_layout.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/competitors.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/corr_dorr_5dec.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/corr_month.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cutomer_rate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ddd.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/donuts_interview.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dropbox.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/employee_layout.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fast.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/female.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fffff.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/figures.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/figures_dictburbank.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/finance_dict.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frames.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frequency_word_chart.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gdoor_employee_rate.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gdoor_mgmt_rate.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glassdoor.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glassdoor_chart.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glassdoor_extra.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glassdoor_processing.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glassdoor_rating_trends.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glassdoor_scripts/glassdoor_benefits.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glassdoor_scripts/glassdoor_interviews.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glassdoor_scripts/glassdoor_jobs.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_All_All_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_All_All_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_All_All_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_All_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_All_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_All_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_Jacksonville_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_allloc_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_allloc_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_allloc_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_alltime_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_alltime_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_alltime_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_bad.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_bad_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_bad_pro.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_bad_pro_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_download.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_ago_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_ago_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_five_years_ago_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_morning.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_nouns.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/good_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/goog.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/goog_org.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_All_All_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_All_All_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_All_All_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_Jacksonville_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_allloc_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_allloc_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_allloc_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_alltime_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_alltime_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_alltime_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_ago_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_ago_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_five_years_ago_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/great_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/import_corr_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/inc_pca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/inc_pca.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/interview_descriptions.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/interview_processing.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/language_layout.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/last_corr_one_month.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libraries.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/male.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/metrics.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/mlab-instantaneous.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/multiple_charts.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/name_loader.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nepali_names.pickle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/new_names.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nyt_255_ces.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nyt_255_wages.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_balance_sheet_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_balance_sheet_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_calculations_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_calculations_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_cash_flow_statement_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_cash_flow_statement_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_income_statement_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_FY_income_statement_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_QTR.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_QTR_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_QTR_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_QTR_calculations_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_QTR_calculations_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__balance_sheet_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__balance_sheet_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__calculations_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__calculations_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__cash_flow_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__cash_flow_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__income_statement_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__income_statement_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__pricemonthly.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org__priceyearly.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_balance_sheet_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_balance_sheet_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_calculations_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_calculations_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_cash_flow_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_cash_flow_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_income_statement_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_income_statement_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_pricequarterly.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org_priceyearly.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/play.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/play.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plot_chart.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polar_figure.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polar_figure_2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/processing.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/processing_best_worst.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/processing_df_stock.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/processing_df_stock.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/radialprogress_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rat_search.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ratings_processing.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rents.p" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report_nyt_255.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/requirements copy.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/requirements_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/search_processing.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/searches_BRJI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/searches_BRJI_dandas.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_All_All_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_All_All_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_All_All_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_All_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_All_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_All_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_Jacksonville_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_allloc_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_allloc_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_allloc_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_alltime_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_alltime_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_alltime_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_alltime_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_alltime_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_alltime_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_ago_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_ago_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_ago_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_ago_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_ago_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_five_years_ago_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_six month_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_six month_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_six month_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_three_years_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_three_years_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_three_years_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_year_1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_year_2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/severe_year_3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_BJRIcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_BJRIpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_BJRIpos_benched_to_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_BJRIpos_benched_to_prepaidexpenses.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_BJRIuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_CMGcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_CMGpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_CMGpos_benched_to_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_CMGpos_benched_to_prepaidexpenses.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_balance_sheet_CMGuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_BJRIcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_BJRIpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_BJRIpos_benched_to_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_BJRIpos_benched_to_ebitmargin.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_BJRIuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_CMGcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_CMGpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_CMGpos_benched_to_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_CMGpos_benched_to_ebitmargin.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_calculations_CMGuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_BJRIcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_BJRIpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_BJRIpos_benched_to_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_BJRIpos_benched_to_repaymentofdebt.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_BJRIuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_CMGcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_CMGpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_CMGpos_benched_to_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_CMGpos_benched_to_repaymentofdebt.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_cash_flow_statement_CMGuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_BJRIcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_BJRIpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_BJRIpos_benched_to_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_BJRIpos_benched_to_otherspecialcharges.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_BJRIpos_benched_to_weightedavedilutedsharesos.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_BJRIuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_CMGcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_CMGpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_CMGpos_benched_to_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_CMGpos_benched_to_otherspecialcharges.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_CMGpos_benched_to_weightedavedilutedsharesos.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_FY_income_statement_CMGuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_BJRIcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_BJRIpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_BJRIpos_benched_to_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_BJRIuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_CMGcorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_CMGpca.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_CMGpos_benched_to_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_QTR_calculations_CMGuncorr.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__balance_sheet_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__balance_sheet_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__calculations_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__calculations_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__cash_flow_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__cash_flow_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__income_statement_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__income_statement_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__pricemonthly.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta__priceyearly.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_balance_sheet_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_balance_sheet_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_calculations_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_calculations_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_cash_flow_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_cash_flow_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_income_statement_BJRI.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_income_statement_CMG.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_pricequarterly.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sta_priceyearly.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stock_df_dict.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stock_df_dict.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stock_narration.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stock_rate.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/table_advanced.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tick_df.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/treemap.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/yelp.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/yelp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/yelp_processing.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/yelp_scraping_all.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/play_2-checkpoint.ipynb" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/play_2-checkpoint.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
@@ -15,45 +775,85 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/setup.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="399">
+                    <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/OneDrive/restaurants/app.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="polar_figure.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layout/polar_figure.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="942" column="0" lean-forward="true" selection-start-line="942" selection-start-column="0" selection-end-line="942" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.py">
+      <file leaf-file-name="name_loader.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/processing/name_loader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="983" column="17" lean-forward="true" selection-start-line="983" selection-start-column="17" selection-end-line="983" selection-end-column="17" />
+            <state relative-caret-position="455">
+              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stock_narration.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/processing/stock_narration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="frames.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/processing/frames.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
-                <element signature="e#17#28#0" expanded="true" />
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="glassdoor_chart.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glassdoor_chart.py">
+      <file leaf-file-name="stock_df_dict.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/processing/stock_df_dict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="114" column="25" lean-forward="false" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="25" />
+            <state relative-caret-position="148">
+              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chart_ratings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chart_ratings.py">
+      <file leaf-file-name="treemap.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layout/treemap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="171" column="32" lean-forward="true" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+            <state relative-caret-position="135">
+              <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -61,69 +861,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yelp_processing.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yelp_processing.py">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="42" />
+            <state relative-caret-position="77">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding>
+                <element signature="e#16#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="processing_df_stock_old.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/processing/processing_df_stock_old.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yelp_scraping_all.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yelp_scraping_all.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yelp.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yelp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="12" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interview_descriptions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/interview_descriptions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-              <folding>
-                <element signature="e#1#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employee_layout.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/employee_layout.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1374">
-              <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="interview_processing.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/interview_processing.py">
+        <entry file="file://$PROJECT_DIR$/processing/interview_processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="124" column="46" lean-forward="true" selection-start-line="124" selection-start-column="46" selection-end-line="124" selection-end-column="46" />
+            <state relative-caret-position="364">
+              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interview_descriptions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/processing/interview_descriptions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#1#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,37 +916,42 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>freq</find>
-      <find>Fre</find>
-      <find>Sentim</find>
-      <find>Difficult</find>
-      <find>fwc</find>
-      <find>langu</find>
-      <find>ll.language_layout</find>
-      <find>interview_layout</find>
-      <find>el.interview_layout</find>
-      <find>fRE</find>
-      <find>EL</find>
-      <find>EL.</find>
-      <find>tab-output-employee</find>
-      <find>langua</find>
-      <find>sent</find>
-      <find>Employee</find>
-      <find>Langua</find>
-      <find>remove</find>
-      <find>employee an</find>
-      <find>Compen</find>
-      <find>Infographic</find>
-      <find>nepali_names.</find>
-      <find>nepali_names.cs</find>
-      <find>new</find>
-      <find>load</find>
-      <find>accep</find>
-      <find>customers</find>
-      <find>goo</find>
-      <find>tabs</find>
-      <find>yep</find>
+      <find>df_tick</find>
+      <find>drop</find>
+      <find>ides</find>
+      <find>Negative</find>
+      <find>&quot;MENU ETF&quot;</find>
+      <find>comp_f_df</find>
+      <find>p+</find>
+      <find>file</find>
+      <find>search_df</find>
+      <find>fil</find>
+      <find>path</find>
+      <find>fig_d_n</find>
+      <find>fig_b_n</find>
+      <find>input</find>
+      <find>input</find>
+      <find>loca+&quot;_comp_f_df</find>
+      <find>ben_frs_dict</find>
+      <find>data.pkl</find>
+      <find>data.p</find>
+      <find>ticker</find>
+      <find>onlyfil</find>
+      <find>BUSINESS_PATH</find>
+      <find>business_id</find>
+      <find>appSecret</find>
+      <find>respond</find>
+      <find>DATA.P</find>
+      <find>os.listdir</find>
+      <find>onlyfiles</find>
+      <find>new_names</find>
+      <find>pickle.load</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/processing</dir>
+      <dir>$USER_HOME$/OneDrive/restaurants</dir>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -178,26 +959,64 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ddd.py" />
-        <option value="$PROJECT_DIR$/donuts_interview.py" />
-        <option value="$PROJECT_DIR$/interview_processing.py" />
-        <option value="$PROJECT_DIR$/interview_descriptions.py" />
-        <option value="$PROJECT_DIR$/language_layout.py" />
-        <option value="$PROJECT_DIR$/chart_ratings.py" />
-        <option value="$PROJECT_DIR$/employee_layout.py" />
-        <option value="$PROJECT_DIR$/compensation_layout.py" />
-        <option value="$PROJECT_DIR$/glassdoor_chart.py" />
-        <option value="$USER_HOME$/OneDrive/restaurants/glassdoor_scripts/processing_benefits.py" />
-        <option value="$USER_HOME$/OneDrive/restaurants/glassdoor_scripts/name_loader.py" />
-        <option value="$PROJECT_DIR$/name_loader.py" />
+        <option value="$PROJECT_DIR$/yelp_project/yelp_scrapy.py" />
+        <option value="$PROJECT_DIR$/processing_best_worst.py" />
+        <option value="$PROJECT_DIR$/frequency_word_chart.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor_extra.py" />
+        <option value="$PROJECT_DIR$/functionality/yelp/yelp_scrapy.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/glassdoor_extra.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/glassdoor_final.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/two.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/glassdoor_reviews.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/glassdoor_interviews.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/glassdoor_rating_trends.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/glassdoor_ratings.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/glassdoor_jobs.py" />
+        <option value="$PROJECT_DIR$/functionality/glassdoor/__init__.py" />
+        <option value="$PROJECT_DIR$/functionality/yelp/yelp_reviews.py" />
+        <option value="$PROJECT_DIR$/functionality/morningstar/good_download.py" />
+        <option value="$PROJECT_DIR$/processing/processing.py" />
+        <option value="$PROJECT_DIR$/processing/sample.py" />
+        <option value="$USER_HOME$/Downloads/login_linkedin.py" />
+        <option value="$PROJECT_DIR$/processing/processing_df_stock.py" />
+        <option value="$PROJECT_DIR$/upwork_linkedin_scrap_final.py" />
+        <option value="$PROJECT_DIR$/processing/processing_best_worst.py" />
+        <option value="$PROJECT_DIR$/processing/processing_df_stock_old.py" />
+        <option value="$PROJECT_DIR$/processing/glassdoor_processing.py" />
+        <option value="$PROJECT_DIR$/processing/ratings_processing.py" />
+        <option value="$PROJECT_DIR$/processing/stock_df_dict.py" />
+        <option value="$PROJECT_DIR$/processing/interview_processing.py" />
+        <option value="$PROJECT_DIR$/processing/stock_processing.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/processing/search_processing.py" />
+        <option value="$PROJECT_DIR$/processing/yelp_processing.py" />
+        <option value="$PROJECT_DIR$/layout/chart_ratings.py" />
+        <option value="$PROJECT_DIR$/layout/charting_words.py" />
+        <option value="$PROJECT_DIR$/layout/compensation_layout.py" />
+        <option value="$PROJECT_DIR$/layout/donuts_interview.py" />
+        <option value="$PROJECT_DIR$/layout/employee_layout.py" />
+        <option value="$PROJECT_DIR$/processing/interview_descriptions.py" />
+        <option value="$PROJECT_DIR$/layout/figures.py" />
+        <option value="$PROJECT_DIR$/layout/frequency_word_chart.py" />
+        <option value="$PROJECT_DIR$/layout/glassdoor_chart.py" />
+        <option value="$PROJECT_DIR$/layout/infograph_layout.py" />
+        <option value="$PROJECT_DIR$/processing/input.py" />
+        <option value="$PROJECT_DIR$/layout/language_layout.py" />
+        <option value="$PROJECT_DIR$/layout/polar_figure_2.py" />
+        <option value="$PROJECT_DIR$/layout/treemap.py" />
+        <option value="$PROJECT_DIR$/layout/polar_figure.py" />
+        <option value="$PROJECT_DIR$/processing/stock_narration.py" />
+        <option value="$PROJECT_DIR$/processing/frames.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/processing/name_loader.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1869" />
+    <option name="x" value="-1785" />
     <option name="y" value="23" />
-    <option name="width" value="1445" />
+    <option name="width" value="1457" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -219,7 +1038,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,14 +1045,40 @@
               <item name="crc-status-dash" type="b2602c69:ProjectViewProjectNode" />
               <item name="crc-status-dash" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="crc-status-dash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crc-status-dash" type="462c0819:PsiDirectoryNode" />
+              <item name="functionality" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="crc-status-dash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crc-status-dash" type="462c0819:PsiDirectoryNode" />
+              <item name="functionality" type="462c0819:PsiDirectoryNode" />
+              <item name="glassdoor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="crc-status-dash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crc-status-dash" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="crc-status-dash" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crc-status-dash" type="462c0819:PsiDirectoryNode" />
+              <item name="processing" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/restaurants" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/processing" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -268,9 +1112,88 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="multiple_charts" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/layout" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="crc-status-dash" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/layout/multiple_charts.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="polar_figure" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/layout" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="crc-status-dash" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/layout/polar_figure.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="polar_figure_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/layout" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="crc-status-dash" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/layout/polar_figure_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="treemap" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/layout" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="crc-status-dash" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/layout/treemap.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.multiple_charts" />
+      <item index="1" class="java.lang.String" itemvalue="Python.polar_figure" />
+      <item index="2" class="java.lang.String" itemvalue="Python.polar_figure_2" />
+      <item index="3" class="java.lang.String" itemvalue="Python.treemap" />
+      <item index="4" class="java.lang.String" itemvalue="Python.app" />
+    </list>
     <recent_temporary>
-      <list size="1">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.app" />
+        <item index="1" class="java.lang.String" itemvalue="Python.treemap" />
+        <item index="2" class="java.lang.String" itemvalue="Python.polar_figure_2" />
+        <item index="3" class="java.lang.String" itemvalue="Python.polar_figure" />
+        <item index="4" class="java.lang.String" itemvalue="Python.multiple_charts" />
       </list>
     </recent_temporary>
   </component>
@@ -288,27 +1211,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1869" y="23" width="1445" height="1057" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1785" y="23" width="1457" height="1057" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16124567" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32994923" sideWeight="0.18200693" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32994923" sideWeight="0.8179931" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32367492" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.21532847" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290735" sideWeight="0.78467155" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.399361" sideWeight="0.49655852" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33071747" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -318,218 +1240,374 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>2</line>
+          <url>file://$PROJECT_DIR$/functionality/morningstar/good_morning.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/layout/chart_ratings.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/multiple_charts.py">
+    <entry file="file://$PROJECT_DIR$/functionality/yelp/yelp_biz.py" />
+    <entry file="file://$PROJECT_DIR$/functionality/yelp/yelp_scraping_all.py" />
+    <entry file="file://$PROJECT_DIR$/functionality/morningstar/good_download.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="160" column="35" lean-forward="true" selection-start-line="160" selection-start-column="35" selection-end-line="160" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ddd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/charting_words.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="570">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#0#26#0" expanded="false" />
+            <element signature="e#1220#1231#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/figures.py">
+    <entry file="file://$PROJECT_DIR$/functionality/morningstar/good_morning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="58" column="33" lean-forward="true" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+        <state relative-caret-position="396">
+          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive/migrate/PhD_Thesis/Customer Employee/PycharmProjects/restaurants/glassdoor_rating_trends-2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functionality/glassdoor/glassdoor_benefits.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functionality/yelp/yelp_reviews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/processing.py" />
+    <entry file="file://$PROJECT_DIR$/functionality/yelp/one.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functionality/glassdoor/glassdoor_reviews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="21" />
+          <folding>
+            <element signature="e#24#37#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functionality/glassdoor/glassdoor_interviews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+          <folding>
+            <element signature="e#24#37#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/sample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/login_linkedin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="106" column="19" lean-forward="true" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/processing_df_stock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functionality/glassdoor/glassdoor_ratings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="20" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/upwork_linkedin_scrap_final.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upwork_linkedin_scrap_final_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#27#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upwork_linkedin_scrap_final.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="40" column="11" lean-forward="false" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/processing_best_worst.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5145">
+          <caret line="348" column="0" lean-forward="false" selection-start-line="348" selection-start-column="0" selection-end-line="350" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yelp_scrapy_proxy_urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/stock_processing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="162" column="24" lean-forward="false" selection-start-line="162" selection-start-column="24" selection-end-line="162" selection-end-column="24" />
+          <folding>
+            <element signature="e#67#86#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/ratings_processing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="69" column="9" lean-forward="false" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/glassdoor_processing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3975">
+          <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/search_processing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="30" column="57" lean-forward="false" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
           <folding>
             <element signature="e#0#19#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/glassdoor_processing.py">
+    <entry file="file://$PROJECT_DIR$/processing/yelp_processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="270" column="66" lean-forward="false" selection-start-line="270" selection-start-column="66" selection-end-line="270" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frequency_word_chart.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#24#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/language_layout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/donuts_interview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="231" column="4" lean-forward="false" selection-start-line="231" selection-start-column="4" selection-end-line="231" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/deloitte.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3109">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="191">
+          <caret line="137" column="27" lean-forward="true" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/Contact.py">
+    <entry file="file://$PROJECT_DIR$/layout/chart_ratings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ukcareers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/OneDrive/restaurants/glassdoor_scripts/processing_benefits.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/OneDrive/restaurants/glassdoor_scripts/name_loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="49" lean-forward="true" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/name_loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/OneDrive/restaurants/glassdoor_scripts/glassdoor_benefits.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interview_descriptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/employee_layout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1374">
-          <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interview_processing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="124" column="46" lean-forward="true" selection-start-line="124" selection-start-column="46" selection-end-line="124" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/glassdoor_chart.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="114" column="25" lean-forward="false" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/OneDrive/restaurants/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="942" column="0" lean-forward="true" selection-start-line="942" selection-start-column="0" selection-end-line="942" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="983" column="17" lean-forward="true" selection-start-line="983" selection-start-column="17" selection-end-line="983" selection-end-column="17" />
-          <folding>
-            <element signature="e#17#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chart_ratings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="171" column="32" lean-forward="true" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yelp_scraping_all.py">
+    <entry file="file://$PROJECT_DIR$/layout/charting_words.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/compensation_layout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="17" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/donuts_interview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/employee_layout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="15" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#36#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/figures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/glassdoor_chart.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/frequency_word_chart.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="9" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#24#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/infograph_layout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="12" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#36#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="58" lean-forward="true" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#19#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/language_layout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#35#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/multiple_charts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/polar_figure_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#681#700#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/treemap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout/polar_figure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/interview_descriptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/OneDrive/restaurants/stock_narration.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -537,29 +1615,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yelp_processing.py">
+    <entry file="file://$PROJECT_DIR$/processing/stock_narration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="42" />
+        <state relative-caret-position="225">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compensation_layout.py">
+    <entry file="file://$PROJECT_DIR$/processing/stock_df_dict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="148">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yelp.py">
+    <entry file="file://$PROJECT_DIR$/processing/frames.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="12" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#16#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/interview_processing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/processing_df_stock_old.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing/name_loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
