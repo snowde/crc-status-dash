@@ -7,7 +7,7 @@ import os
 
 my_path = os.path.abspath(os.path.dirname(__file__))
 path_2 = os.path.join(my_path, "../input_fields.csv")
-path_in_pickle = os.path.join(my_path, "../data/stock/")
+path_in = os.path.join(my_path, "../data/stock/")
 
 #input_fields = pd.read_csv(path)
 #tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
@@ -15,15 +15,12 @@ path_in_pickle = os.path.join(my_path, "../data/stock/")
 #for t in tick:
 
 
-def describe(loca,bench,swap):
+def describe(ticker_start,bench_start,loca,bench,swap):
 
     tick = " (BJRI) "
     company = "BJ's"
     company_org = "BJ's"
 
-    ben_frs_dict = {"MENU ETF": path_in_pickle + loca+"_comp_f_df.csv",
-                    "Filtered ETF": path_in_pickle + loca+"_comp_f_df.csv",
-                    "Chipotle": path_in_pickle + loca+"_comp_df.csv"}
 
     my_path = os.path.abspath(os.path.dirname(__file__))
     path = os.path.join(my_path, "../input_fields.csv")
@@ -32,13 +29,15 @@ def describe(loca,bench,swap):
 
     codes = input_fields["code_or_ticker"]
 
+    path = os.path.join(my_path, "../data/stock/")
+
     #for value in codes:
 
     #    ben_frs_dict[value] =
 
     if swap==True:
-        df_tick = ben_frs_dict[loca]
-        df_final = input.df_tick
+        df_tick = pd.read_csv(path + bench_start +"_tick_df.csv")
+        df_final = pd.read_csv(path + ticker_start +"_tick_df.csv")
         tick=" "
         bench = company
         company = loca +"'s"
@@ -46,8 +45,8 @@ def describe(loca,bench,swap):
 
 
     else:
-        df_tick = input.df_tick
-        df_final = ben_frs_dict[bench]
+        df_tick = pd.read_csv(path + ticker_start +"_tick_df.csv")
+        df_final = pd.read_csv(path + bench_start +"_tick_df.csv")
 
     date_old_str = df_final["date"].head(1).values[0]
 

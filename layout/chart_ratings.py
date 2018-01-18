@@ -21,7 +21,7 @@ glassdoor_m= pd.read_csv(path_in +c + "_gdoor_mgmt_rate.csv")
 df_tick= pd.read_csv(path_in +c + "_stock_rate.csv")
 yelp= pd.read_csv(path_in + "all_yelps_rates_" + c +".csv")
 
-
+#
 trace_emp = go.Scatter(
     x=glassdoor["Review Date"],
     y=glassdoor["Final_Rating"],

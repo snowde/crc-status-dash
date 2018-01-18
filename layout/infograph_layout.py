@@ -7,14 +7,13 @@ import dash_html_components as html
 import processing.interview_descriptions as ides
 import _pickle as pickle
 import os
-
 my_path = os.path.abspath(os.path.dirname(__file__))
 path_2 = os.path.join(my_path, "../input_fields.csv")
 path_in_ngrams = os.path.join(my_path, "../data/cpickle/")
 
 
 coy = "BJRI"
-city = "burbank"
+city = "bjs-restaurant-and-brewhouse-sugar-land.csv"[:-4]
 bench = "CAKE"
 
 figures_dict = pickle.load(open(path_in_ngrams + "figures_dict_"+coy+".p", "rb"))
@@ -95,7 +94,7 @@ info_layout = html.Div([
         html.Div([
             dcc.Dropdown(
                 id='bench_location',
-                options=[{'label': r, 'value': v} for r, v in zip(["BJs", "Chipotle"], ["BJRI", "CMG"])],
+                options=[{'label': r, 'value': v} for r, v in zip(["BJs", "Chipotle"], ["BJRI", "CAKE"])],
                 value="BJRI",
                 clearable=False,
                 className="dropper"

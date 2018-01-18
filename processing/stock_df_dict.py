@@ -10,10 +10,8 @@ import numpy as np
 from flask import Flask
 import intrinio
 from six.moves import cPickle as pickle  # for performance
-import numpy as np
-
-
-
+import numpy as n
+from app import bench_start, ticker_start
 pd.set_option('display.max_columns', None)
 
 pd.set_option('display.max_columns', None)
@@ -41,9 +39,17 @@ def Normalisation(df):
     df.index = index
     return df
 
+import os
 
-ticks = ["CMG", "BJRI"]
+ticks = [bench_start, ticker_start]
 dict_frames = {}
+
+my_path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.join(my_path, "../input_fields.csv")
+
+input_fields = pd.read_csv(path)
+
+ticks  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
 
 import intrinio
 
@@ -231,7 +237,7 @@ for ticker in ticks:
     for request in req:
 
         original = pd.read_csv(path + "org_" + request + "_" + ticker + ".csv")
-        normalised = pd.read_csv(path + "sta_" + "_" + request + "_" + ticker + ".csv")
+        normalised = pd.read_csv(path + "sta_" +  request + "_" + ticker + ".csv")
 
         corr_ft = correlation(True, 15, 8, normalised)
         uncorr_ft = correlation(False, -15, 8, normalised)

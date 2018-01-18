@@ -13,6 +13,9 @@ import pandas as pd
 import os
 from flask import Flask
 from six.moves import cPickle as pickle #for performance
+from os import listdir
+from os.path import isfile, join
+import numpy as np
 
 
 import processing.input as inp
@@ -41,14 +44,18 @@ import layout.employee_layout as el
 my_path = os.path.abspath(os.path.dirname(__file__))
 path = os.path.join(my_path, "../input_fields.csv")
 
-input_fields = pd.read_csv(path)
+input_fields = pd.read_csv("input_fields.csv")
 
 tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
 
 
-ticker_start = input_fields[input_fields["starting"]==1]["ticker"][0]
+ticker_start = input_fields[input_fields["starting"]==1]["ticker"].reset_index(drop=True)[0]
 
+bench_start = input_fields[input_fields["starting"]==2]["ticker"].reset_index(drop=True)[0]
 
+location_start = "2231 State Hwy 6, Sugar Land, TX 77478"
+
+small_loc = "Sugar-Land"
 ###############
 
 # Initialize the Dash app
@@ -126,7 +133,7 @@ def make_dash_table(df):
 ##
 #df_perf_summary = pd.read_csv("17530.csv")
 
-df_perf_summary = fm.fin_met("BJRI","CMG")
+df_perf_summary = fm.fin_met(ticker_start,bench_start)
 
 modifed_perf_table = make_dash_table(df_perf_summary)
 
@@ -157,29 +164,106 @@ df_fund_characteristics = pd.read_csv('https://plot.ly/~jackp/17542.csv')
 df_fund_facts = pd.read_csv('https://plot.ly/~jackp/17540.csv')
 df_bond_allocation = pd.read_csv('https://plot.ly/~jackp/17538.csv')
 
-start_ticker = input_fields[input_fields["starting"]==1]["ticker"][0]
-
-available_benchmarks = list(input_fields["extra_bench"].dropna().values)
-
-available_benchmarks_1 = list(input_fields["code_or_ticker"].values)
-
-available_benchmarks_1.remove(start_ticker)
-
-for r in available_benchmarks_1:
-    available_benchmarks.append(r)
-
-available_benchmarks
+##### Addition One
 
 my_path = os.path.abspath(os.path.dirname('__file__'))
-path = os.path.join(my_path, "../data/ratings/" )
+path = os.path.join(my_path, "data/yelp/" + ticker_start + "/")
 
-locas = pd.read_csv(path + "all_yelps_rates_" + start_ticker + ".csv").columns
+path_out = os.path.join(my_path, "data/ratings/")
+
+onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
+
+path_in_ngrams = os.path.join(my_path, "data/cpickle/")
+
+figures_dict = pickle.load(open(path_in_ngrams + "figures_dict_"+ticker_start+".p", "rb"))
+
+new_list = []
+for of in onlyfiles:
+    address = figures_dict[ticker_start, of[:-4]]["Response Data"]["location"]["display_address"]
+    ak = ""
+    for a in address:
+        if ak == "":
+            ak = ak + a
+        else:
+            ak = ak + ", " + a
+    new_list.append(ak)
+
+rat = ""
+for li in onlyfiles:
+    rat = rat + li + "-"
+
+from collections import Counter
+import re
+
+coun = Counter(rat.split("-"))
+
+ad = pd.DataFrame()
+
+ad["word"] = list(coun.keys())
+ad["number"] = list(coun.values())
+
+ad = ad.sort_values("number", ascending=False)
+
+ad = ad[~(np.abs(ad.number - ad.number.mean()) <= (3.2 * ad.number.std()))]
+
+ad.reset_index(inplace=True, drop=True)
+ad["word_1"] = "-" + ad["word"] + "-"
+ad["word_2"] = ad["word"] + "-"
+ad["word_3"] = "-" + ad["word"]
+
+ad["final"] = ad["word_1"]
+
+words = list(ad["final"].append(ad["word_2"]).append(ad["word_3"]).values)
+
+full_names = []
+small_names = []
+a_small_names = []
+for i in range(len(onlyfiles)):
+    my_string = onlyfiles[i]
+    full_names.append(my_string)
+    li = my_string
+    if len(li) > 4:
+        li = re.sub(r'|'.join(map(re.escape, list(words))), '', li)
+        small_names.append(li[:-4])
+
+        ga  = li[:-4].title()
+        a_small_names.append(ga)
+
+codes_df = pd.DataFrame()
+codes_df["file"]=onlyfiles
+codes_df["address"] = new_list
+codes_df["small"] = a_small_names
+#print(codes_df[codes_df["small"]=="Glendale"]["address"].reset_index(drop=True)[0])
+
+available_locations = new_list
+
+my_path = os.path.abspath(os.path.dirname('__file__'))
+path = os.path.join(my_path, "input_fields.csv")
+
+input_fields = pd.read_csv(path)
+input_fields = pd.read_csv(path)
 
 
-available_locations = list(locas[1:])
+start_ticker = input_fields[input_fields["starting"]==1]["ticker"].reset_index(drop=True)[0]
 
-tickers_loca = {"All":ticker_start,"Jacksonville":ticker_start,"Wisconsin":ticker_start,"Michigan":ticker_start}
-tickers_bench ={"MENU ETF":"CMG", "Filtered ETF":"CMG","Chipotle":"CMG"}
+available_benchmarks = list(input_fields["code_or_ticker"].values)
+
+available_benchmarks.remove(start_ticker)
+
+available_benchmarks = list(input_fields[input_fields["code_or_ticker"].isin(available_benchmarks)]["short_name"].values)
+
+tickers_loca = {}
+tickers_loca["All"] = ticker_start
+for i in available_locations:
+    tickers_loca[i] = ticker_start
+
+tickers = list(input_fields[input_fields["short_name"].isin(available_benchmarks)]["ticker"].values)
+
+tickers_bench = {}
+for i, t in zip(available_benchmarks, tickers):
+    tickers_bench[i] = t
+
+###
 
 colors = {
     'background': '#111111',
@@ -216,10 +300,11 @@ app.layout = html.Div([
                         html.Div([
                             dcc.Dropdown(
                                 id='locas',
-                                options=[{'label': i, 'value': i} for i in available_locations],
+                                options=[{'label': r, 'value': i} for r,i in zip(available_locations,codes_df[codes_df["address"].isin(available_locations)]["small"])],
                                 value="All",
                                 clearable=False,
-                                className="dropper"
+                                className="dropper",
+                                placeholder="Type Location",
 
 
                             )
@@ -232,11 +317,11 @@ app.layout = html.Div([
                         html.Div([
                             dcc.Dropdown(
                                 id='benchy',
-                                options=[{'label': i, 'value': i} for i in available_benchmarks],
-                                value='MENU ETF',
+                                options=[{'label': r, 'value': i} for r, i in tickers_bench.items()],
+                                #value=bench_start,
                                 clearable=False,
-                                className="dropper"
-
+                                className="dropper",
+                                placeholder="Select Benchmark"
 
                             )
                         ], style={'background-color':'#a9a9a9','color':'rgb(217, 224, 236)','width': '80%','float':'left','width': '20%'}),
@@ -475,7 +560,7 @@ app.layout = html.Div([
                     html.H6(["Competitor Analysis"],
                             className="gs-header gs-table-header padded") ]),
 
-            dcc.Graph(figure=pf.figs_polar(ticker,"bench", ticker), config={'displayModeBar': False}, id='comp_plot',style={'border': '0', 'width': "100%", 'height': "250"}),
+            dcc.Graph(figure=pf.figs_polar(ticker_start,"bench", ticker_start), config={'displayModeBar': False}, id='comp_plot',style={'border': '0', 'width': "100%", 'height': "250"}),
 
 
         ], className="subpage"),
@@ -716,7 +801,7 @@ html.Div([  # page 5
         ], className="subpage"),
 
     ], className="page"),
-
+####
     html.Div([  # page 2
 
             html.A(['Print PDF'],
@@ -794,7 +879,7 @@ for js in external_js:
     app.scripts.append_script({"external_url": js})
 
 
-
+#
 # Call Backs
 
 @app.callback(
@@ -806,9 +891,14 @@ for js in external_js:
 
 def update_fig(the_location, the_benchmark, clicks):
     if clicks % 2 == 0:
-        fig = figs(the_location, the_benchmark, False)
+        if not all((the_benchmark, the_location)):
+            the_benchmark = bench_start
+            the_location = location_start
+            fig = figs(ticker_start,bench_start,the_location, the_benchmark, False)
+        else:
+            fig = figs(ticker_start, bench_start, the_location, the_benchmark, False)
     else:
-        fig = figs(the_benchmark, the_location, True)
+        fig = figs(ticker_start,bench_start,the_benchmark, the_location, True)
     return fig
 
 
@@ -821,9 +911,14 @@ def update_fig(the_location, the_benchmark, clicks):
 
 def update_desc(the_location, the_benchmark, clicks):
     if clicks % 2 == 0:
-        desc = describe(the_location, the_benchmark, False)
+        if not all((the_benchmark,the_location)):
+            the_benchmark = bench_start
+            the_location = location_start
+            desc = describe(ticker_start,bench_start,the_location, the_benchmark, False)
+        else:
+            desc = describe(ticker_start,bench_start,the_location, the_benchmark, False)
     else:
-        desc = describe(the_benchmark, the_location, True)
+        desc = describe(ticker_start,bench_start, the_location,the_benchmark, True)
     return desc
 
 
@@ -849,13 +944,23 @@ def update_title(the_location, the_benchmark, clicks):
      ])
 
 def update_title(the_location, the_benchmark, clicks):
+
     if clicks % 2 == 0:
-        title = str(the_location) + " Location"
+        if not all((the_benchmark, the_location)):
+            the_benchmark = bench_start
+            the_location = location_start
+            addy = codes_df[codes_df["small"] == the_location]["address"].reset_index(drop=True)[0]
+            title = str(addy) + " Location"
+        else:
+            addy = codes_df[codes_df["small"] == the_location]["address"].reset_index(drop=True)[0]
+            title = str(addy) + " Location"
+
+
     else:
-        title = str(the_benchmark) + " Locations"
+        title = str(the_benchmark) + " Location"
     return title
 
-
+###
 @app.callback(
     dash.dependencies.Output('profile', 'children'),
     [dash.dependencies.Input('locas', 'value'),
@@ -865,12 +970,17 @@ def update_title(the_location, the_benchmark, clicks):
 
 def update_title(the_location, the_benchmark, clicks):
     if clicks % 2 == 0:
-        title = str(the_location) + " Profile"
+        if not all((the_benchmark, the_location)):
+            the_benchmark = bench_start
+            the_location = location_start
+            title = small_loc + " Profile"
+        else:
+            title = str(the_location) + " Profile"
     else:
         title = str(the_benchmark) + " Profile"
     return title
 
-
+###
 @app.callback(
     dash.dependencies.Output('mgmt_perf', 'children'),
     [dash.dependencies.Input('locas', 'value'),
@@ -880,9 +990,17 @@ def update_title(the_location, the_benchmark, clicks):
 
 def update_table(the_location, the_benchmark, clicks):
     if clicks % 2 == 0:
-        df_perf_summary = fm.fin_met(tickers_loca[the_location], tickers_bench[the_benchmark])
+        if not all((the_benchmark, the_location)):
+            df_perf_summary = fm.fin_met(ticker_start, tickers_bench[the_benchmark])
+        else:
+            the_location = location_start
+            the_benchmark = bench_start
+            df_perf_summary = fm.fin_met(ticker_start, the_benchmark)
+
+
     else:
-        df_perf_summary = fm.fin_met(tickers_bench[the_benchmark], tickers_loca[the_location])
+        df_perf_summary = fm.fin_met(tickers_bench[the_benchmark], ticker_start)
+
     modifed_perf_table = make_dash_table(df_perf_summary)
 
     modifed_perf_table.insert(
@@ -902,18 +1020,15 @@ def update_table(the_location, the_benchmark, clicks):
      Input('study', 'value'),
      Input('bench', 'value')])
 def filter( var, req, stu, ben):
-    print(req, stu, ben)
 
     df = dict_frames[ben, req, stu]
 
     highlight = list(df.drop("year",axis=1).columns.values)
-    print(highlight)
 
     if stu in ["Normalised", "Original"]:
         highlight = list(df.ix[:, :5].columns.values)
 
     highlight = highlight + var
-    print(highlight)
     figure = mc.create_figure(highlight,df,req, stu)
 
     for trace in figure['data']:
@@ -923,7 +1038,7 @@ def filter( var, req, stu, ben):
         id='filtered-graph',
         figure=figure,config={'displayModeBar': False}
     )
-##
+###
 @app.callback(
     Output('category-filter', 'options'),
     [Input('request', 'value'),
@@ -944,7 +1059,6 @@ def filter(req, stu, ben):
      ])
 def filter(req):
     df = dict_frames["BJRI", req, "Original"]
-    print(df)
     return tm.treemap(df)
 ###
 @app.callback(
@@ -952,8 +1066,7 @@ def filter(req):
     [Input('request', 'value'),
      ])
 def filter(req):
-    df = dict_frames["CMG", req, "Original"]
-    print(df)
+    df = dict_frames[bench_start, req, "Original"]
     return tm.treemap(df)
 
 @app.callback(
@@ -968,7 +1081,7 @@ def filter2( goo, time, many, norm, bench):
 
     figure = gc.chart_gd(goo, time, many, norm, bench)
 
-
+##
     return figure
 
 @app.callback(
