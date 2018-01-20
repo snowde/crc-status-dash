@@ -13,17 +13,16 @@ path_2 = os.path.join(my_path, "../input_fields.csv")
 path_in_pickle = os.path.join(my_path, "../data/stock/")
 
 
-def figs(ticker_start,bench_start,loca, bench,swap):
-    tick = " (BJRI) "
-    company = "BJ's"
-    company_org = "BJ's"
-
+def figs(code_start,bench_start):
     my_path = os.path.abspath(os.path.dirname(__file__))
     path = os.path.join(my_path, "../input_fields.csv")
 
     input_fields = pd.read_csv(path)
 
-    codes = input_fields["code_or_ticker"]
+    company = input_fields[input_fields["code_or_ticker"]==code_start]["short_name"].reset_index(drop=True)[0]
+
+    tick = " (" + input_fields[input_fields["code_or_ticker"]==code_start]["ticker"].reset_index(drop=True)[0] + ") "
+
 
     path = os.path.join(my_path, "../data/stock/")
 
@@ -31,26 +30,16 @@ def figs(ticker_start,bench_start,loca, bench,swap):
 
     #    ben_frs_dict[value] =
 
-    if swap == True:
-        df_tick = pd.read_csv(path + bench_start + "_tick_df.csv")
-        df_final = pd.read_csv(path + ticker_start + "_tick_df.csv")
-        tick = " "
-        bench = company
-        company = loca + "'s"
-        company_org = loca
+    df_com = pd.read_csv(path + code_start + "_tick_df.csv")
+    df_ben = pd.read_csv(path + bench_start + "_tick_df.csv")
 
-
-    else:
-        df_tick = pd.read_csv(path + ticker_start + "_tick_df.csv")
-        df_final = pd.read_csv(path + bench_start + "_tick_df.csv")
-
-    df_final["date"] = pd.to_datetime(df_final["date"], format="%Y-%m-%d")
-    df_tick["date"] = pd.to_datetime(df_tick["date"], format="%Y-%m-%d")
+    df_ben["date"] = pd.to_datetime(df_ben["date"], format="%Y-%m-%d")
+    df_com["date"] = pd.to_datetime(df_com["date"], format="%Y-%m-%d")
 
     py.sign_in('snowde', 'm12EGGpG9bqMssuzLnjY')
     trace1 = {
-        "x": df_tick["date"],
-        "y": df_tick["close"],
+        "x": df_com["date"],
+        "y": df_com["close"],
         "line": {
             "color": "rgb(140, 15, 7)",
             "width": 3
@@ -61,8 +50,8 @@ def figs(ticker_start,bench_start,loca, bench,swap):
         "uid": "4cd1a4"
     }
     trace2 = {
-        "x": df_final["date"],
-        "y": df_final["close"],
+        "x": df_ben["date"],
+        "y": df_ben["close"],
         "connectgaps": True,
         "line": {
             "color": "rgb(22, 60, 109)",
@@ -70,7 +59,7 @@ def figs(ticker_start,bench_start,loca, bench,swap):
             "width": 3
         },
         "mode": "lines",
-        "name": bench,
+        "name": bench_start,
         "type": "scatter",
         "uid": "f7fed3"
     }
@@ -102,8 +91,8 @@ def figs(ticker_start,bench_start,loca, bench,swap):
         "xaxis": {
             "autorange": False,
             "gridcolor": "rgb(255, 255, 255)",
-            "range": [str(min([df_final["date"].min(), df_tick["date"].min()]))[:10],
-                      str(max([df_final["date"].max() + timedelta(days=200), df_tick["date"].max() + timedelta(days=200)]))[
+            "range": [str(min([df_ben["date"].min(), df_com["date"].min()]))[:10],
+                      str(max([df_ben["date"].max() + timedelta(days=200), df_com["date"].max() + timedelta(days=200)]))[
                       :10]],
             "showline": True,
             "tickfont": {"color": "rgb(68, 68, 68)"},
@@ -116,8 +105,8 @@ def figs(ticker_start,bench_start,loca, bench,swap):
             "autorange": False,
             "gridcolor": "rgb(255, 255, 255)",
             "nticks": 11,
-            "range": [int(min([df_final["close"].min(), df_tick["close"].min()]) - 40),
-                      int(max([df_final["close"].max(), df_tick["close"].max()]) + 10)],
+            "range": [int(min([df_ben["close"].min(), df_com["close"].min()]) - 40),
+                      int(max([df_ben["close"].max(), df_com["close"].max()]) + 10)],
             "showline": True,
             "ticks": "outside",
             "title": "",

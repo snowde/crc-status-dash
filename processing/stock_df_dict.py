@@ -11,7 +11,6 @@ from flask import Flask
 import intrinio
 from six.moves import cPickle as pickle  # for performance
 import numpy as n
-from app import bench_start, ticker_start
 pd.set_option('display.max_columns', None)
 
 pd.set_option('display.max_columns', None)
@@ -41,7 +40,6 @@ def Normalisation(df):
 
 import os
 
-ticks = [bench_start, ticker_start]
 dict_frames = {}
 
 my_path = os.path.abspath(os.path.dirname(__file__))
@@ -50,6 +48,7 @@ path = os.path.join(my_path, "../input_fields.csv")
 input_fields = pd.read_csv(path)
 
 ticks  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
+codes = input_fields["code_or_ticker"]
 
 import intrinio
 
@@ -233,7 +232,7 @@ def smoothed(bj_qtr):
 
 
 req = ["calculations", "income_statement", "cash_flow","balance_sheet"]
-for ticker in ticks:
+for ticker, cod in zip(ticks,codes):
     for request in req:
 
         original = pd.read_csv(path + "org_" + request + "_" + ticker + ".csv")
@@ -264,19 +263,19 @@ for ticker in ticks:
         uncorr_ft = normalised[uncorr_ft.tolist() + ["year"]]
 
 
-        dict_frames[ticker, request, "Original"] = original
-        dict_frames[ticker, request, "Normalised"] = normalised
-        dict_frames[ticker, request, "Correlated Fundamentals"] = corr_ft
-        dict_frames[ticker, request, "Neg Correlated Pairs"] = uncorr_ft
-        dict_frames[ticker, request, "Principal Component"] = pd.concat((pca_df, normalised["year"]),axis=1)
-        dict_frames[ticker, request, "Benchmark"] = bench
-        dict_frames[ticker, request, "Better Than Bench"] = benched_pos_ft
-        dict_frames[ticker, request, "Worse Than Bench"] = benched_neg_ft
-        dict_frames[ticker, request, "Volatile"] = volatile_ft
-        dict_frames[ticker, request, "Stable"] = stable_ft
-        dict_frames[ticker, request, "Smooth"] =  pd.concat((smooth_df, normalised["year"]),axis=1)
-        dict_frames[ticker, request,"Price Correlated"] = cor_pair
-        dict_frames[ticker, request,"Price Neg Correlated"] = uncor_pair
+        dict_frames[cod, request, "Original"] = original
+        dict_frames[cod, request, "Normalised"] = normalised
+        dict_frames[cod, request, "Correlated Fundamentals"] = corr_ft
+        dict_frames[cod, request, "Neg Correlated Pairs"] = uncorr_ft
+        dict_frames[cod, request, "Principal Component"] = pd.concat((pca_df, normalised["year"]),axis=1)
+        dict_frames[cod, request, "Benchmark"] = bench
+        dict_frames[cod, request, "Better Than Bench"] = benched_pos_ft
+        dict_frames[cod, request, "Worse Than Bench"] = benched_neg_ft
+        dict_frames[cod, request, "Volatile"] = volatile_ft
+        dict_frames[cod, request, "Stable"] = stable_ft
+        dict_frames[cod, request, "Smooth"] =  pd.concat((smooth_df, normalised["year"]),axis=1)
+        dict_frames[cod, request,"Price Correlated"] = cor_pair
+        dict_frames[cod, request,"Price Neg Correlated"] = uncor_pair
 
 
 def save_dict(di_, filename_):

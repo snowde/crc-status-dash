@@ -10,10 +10,12 @@ path_2 = os.path.join(my_path, "../input_fields.csv")
 path_in_pickle = os.path.join(my_path, "../data/pos/")
 
 
-def four_figs():
+def four_figs(code):
 
     first = "good"
     second = "bad"
+
+    code = code
 
     g_b = pd.read_csv(path_in_pickle + first + "_" + second + ".csv")
 

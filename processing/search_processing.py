@@ -17,8 +17,8 @@ path_out = os.path.join(my_path, "../data/search/")
 
 input_fields = pd.read_csv(path)
 
-tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
-
+#tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
+tick = input_fields["code_or_ticker"]
 code = input_fields["code_or_ticker"]
 
 for c, t in zip(code, tick):

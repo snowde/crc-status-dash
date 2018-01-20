@@ -8,7 +8,7 @@ import dash_table_experiments as dt
 from plotly import graph_objs as go
 from datetime import datetime as dt
 import json
-import json
+
 import pandas as pd
 import os
 from flask import Flask
@@ -36,88 +36,77 @@ import processing.frames as fm
 from layout.figures import figs
 import layout.donuts_interview as di
 import layout.employee_layout as el
+from flask_caching import Cache
+
 
 ### It is important to note that there is no target firm. This is dynamic.
 
     #To Give Orientation
 
-my_path = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(my_path, "../input_fields.csv")
-
-input_fields = pd.read_csv("input_fields.csv")
-
-tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
-
-
-ticker_start = input_fields[input_fields["starting"]==1]["ticker"].reset_index(drop=True)[0]
-
-bench_start = input_fields[input_fields["starting"]==2]["ticker"].reset_index(drop=True)[0]
-
-location_start = "2231 State Hwy 6, Sugar Land, TX 77478"
-
-small_loc = "Sugar-Land"
-###############
-
-# Initialize the Dash app
+# Initialize the Dash app #
 app = dash.Dash(__name__)
+
+cache = Cache(app.server, config={
+    'CACHE_TYPE': 'filesystem',
+    'CACHE_DIR': 'cache'
+})
+
+
 server = app.server
 # -> This part is important for Heroku deployment
 server.secret_key = os.environ.get('SECRET_KEY', 'my-secret-key')
 
 
-def db_frame(url):
-    url = url.replace("dl=0", "dl=1")  # dl=1 is important
+## Loading input fields
+my_path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.join(my_path, "../input_fields.csv")
 
-    import urllib.request
-    u = urllib.request.urlopen(url)
-    data = u.read()
-    u.close()
-
-    def find_between_r(s, first, last):
-        try:
-            start = s.rindex(first) + len(first)
-            end = s.rindex(last, start)
-            return s[start:end]
-        except ValueError:
-            return ""
-
-    filename = find_between_r(url, "/", "?")
-
-    with open(filename, "wb") as f:
-        f.write(data)
-
-    ff = pd.read_excel(filename)
-    return ff
-
-#go
-s_metrics_df = fm.s_metrics_df
-c_metrics_df = fm.c_metrics_df
-
-
-r = 5
-if r>4:
-    employee_sentiment = "happy"
-else:
-    employee_sentiment = "unhappy"
-
-dict = {
-
-    "title":"BJ’s Restaurant & Brewhouse",
-    "location":"Jacksonville",
-    "employees":"Employees are " + employee_sentiment + "." + "The company then bought 26.",
-    "customers":"Customers are happy. The company then bought 26.",
-    "shareholders":"Shareholders are happy. The company then bought 26.",
-    "management":"Management is performing well. The company then bought 26."
-
-}
-#
-
-
+input_fields = pd.read_csv("input_fields.csv")
 from datetime import datetime, timedelta
 
 now = datetime.now()
 
-#stock_price_desc = describe
+
+###############
+
+r = 5
+if r > 4:
+    employee_sentiment = "happy"
+else:
+    employee_sentiment = "unhappy"
+
+
+dict = {
+
+    "title": "BJ’s Restaurant & Brewhouse",
+    "location": "Jacksonville",
+    "employees": "Employees are " + employee_sentiment + "." + "The company then bought 26.",
+    "customers": "Customers are happy. The company then bought 26.",
+    "shareholders": "Shareholders are happy. The company then bought 26.",
+    "management": "Management is performing well. The company then bought 26."
+
+}
+#
+colors = {
+    'background': '#111111',
+    'text': '#7FDBFF'
+}
+
+my_path = os.path.abspath(os.path.dirname('__file__'))
+
+path = os.path.join(my_path, "data/cpickle/")
+
+first_dict = pickle.load(open(path + "first_page.p", "rb"))
+
+
+figure = pf.figs_polar(first_dict["code_start"], "bench", first_dict["code_start"])
+
+comp_plot_output = figure
+
+fig = figs(first_dict["code_start"], first_dict["the_benchmark"])
+stock_plot_output = fig
+
+df_perf_summary = first_dict["df_perf_summary_output"]
 
 
 def make_dash_table(df):
@@ -130,10 +119,6 @@ def make_dash_table(df):
         table.append(html.Tr(html_row))
     return table
 
-##
-#df_perf_summary = pd.read_csv("17530.csv")
-
-df_perf_summary = fm.fin_met(ticker_start,bench_start)
 
 modifed_perf_table = make_dash_table(df_perf_summary)
 
@@ -145,134 +130,34 @@ modifed_perf_table.insert(
     ], style={'background': 'white', 'font-weight': '600'}
     )
 )
+mgmt_perf_output = modifed_perf_table
 
-# Function To Import Dictionary and Open IT.
-def load_dict(filename_):
-    with open(filename_, 'rb') as f:
-        ret_di = pd.read_pickle(f)
-    return ret_di
-
-my_path = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(my_path, "data/financial/")
-
-# And the specification of this table
-dict_frames = load_dict(path + 'data.pkl') # Much rather use this one
+mgmt_perf_output_1 = modifed_perf_table
 
 
-df_fund_info = pd.read_csv('https://plot.ly/~jackp/17544.csv')
-df_fund_characteristics = pd.read_csv('https://plot.ly/~jackp/17542.csv')
-df_fund_facts = pd.read_csv('https://plot.ly/~jackp/17540.csv')
-df_bond_allocation = pd.read_csv('https://plot.ly/~jackp/17538.csv')
+#path = os.path.join(my_path, "data/cpickle/")
 
-##### Addition One
+#dict_all_coll = pickle.load(open(path + "dict_all_coll.p", "rb"))
 
-my_path = os.path.abspath(os.path.dirname('__file__'))
-path = os.path.join(my_path, "data/yelp/" + ticker_start + "/")
+@cache.memoize()
+def roll():
+    my_path = os.path.abspath(os.path.dirname('__file__'))
 
-path_out = os.path.join(my_path, "data/ratings/")
+    path = os.path.join(my_path, "data/cpickle/")
 
-onlyfiles = [f for f in listdir(path) if isfile(join(path, f))]
+    dict_all_coll = pickle.load(open(path + "dict_all_coll.p", "rb"))
+    return dict_all_coll
 
-path_in_ngrams = os.path.join(my_path, "data/cpickle/")
-
-figures_dict = pickle.load(open(path_in_ngrams + "figures_dict_"+ticker_start+".p", "rb"))
-
-new_list = []
-for of in onlyfiles:
-    address = figures_dict[ticker_start, of[:-4]]["Response Data"]["location"]["display_address"]
-    ak = ""
-    for a in address:
-        if ak == "":
-            ak = ak + a
-        else:
-            ak = ak + ", " + a
-    new_list.append(ak)
-
-rat = ""
-for li in onlyfiles:
-    rat = rat + li + "-"
-
-from collections import Counter
-import re
-
-coun = Counter(rat.split("-"))
-
-ad = pd.DataFrame()
-
-ad["word"] = list(coun.keys())
-ad["number"] = list(coun.values())
-
-ad = ad.sort_values("number", ascending=False)
-
-ad = ad[~(np.abs(ad.number - ad.number.mean()) <= (3.2 * ad.number.std()))]
-
-ad.reset_index(inplace=True, drop=True)
-ad["word_1"] = "-" + ad["word"] + "-"
-ad["word_2"] = ad["word"] + "-"
-ad["word_3"] = "-" + ad["word"]
-
-ad["final"] = ad["word_1"]
-
-words = list(ad["final"].append(ad["word_2"]).append(ad["word_3"]).values)
-
-full_names = []
-small_names = []
-a_small_names = []
-for i in range(len(onlyfiles)):
-    my_string = onlyfiles[i]
-    full_names.append(my_string)
-    li = my_string
-    if len(li) > 4:
-        li = re.sub(r'|'.join(map(re.escape, list(words))), '', li)
-        small_names.append(li[:-4])
-
-        ga  = li[:-4].title()
-        a_small_names.append(ga)
-
-codes_df = pd.DataFrame()
-codes_df["file"]=onlyfiles
-codes_df["address"] = new_list
-codes_df["small"] = a_small_names
-#print(codes_df[codes_df["small"]=="Glendale"]["address"].reset_index(drop=True)[0])
-
-available_locations = new_list
-
-my_path = os.path.abspath(os.path.dirname('__file__'))
-path = os.path.join(my_path, "input_fields.csv")
-
-input_fields = pd.read_csv(path)
-input_fields = pd.read_csv(path)
+dict_all_coll = roll()
 
 
-start_ticker = input_fields[input_fields["starting"]==1]["ticker"].reset_index(drop=True)[0]
-
-available_benchmarks = list(input_fields["code_or_ticker"].values)
-
-available_benchmarks.remove(start_ticker)
-
-available_benchmarks = list(input_fields[input_fields["code_or_ticker"].isin(available_benchmarks)]["short_name"].values)
-
-tickers_loca = {}
-tickers_loca["All"] = ticker_start
-for i in available_locations:
-    tickers_loca[i] = ticker_start
-
-tickers = list(input_fields[input_fields["short_name"].isin(available_benchmarks)]["ticker"].values)
-
-tickers_bench = {}
-for i, t in zip(available_benchmarks, tickers):
-    tickers_bench[i] = t
-
-###
-
-colors = {
-    'background': '#111111',
-    'text': '#7FDBFF'
-}
 
 app.config['suppress_callback_exceptions']=True
 # Describe the layout, or the UI, of the app
 app.layout = html.Div([
+
+    # Hidden div inside the app that stores the intermediate value
+    html.Div(id='intermediate-value', style={'display': 'none'}),
 
     html.Div([  # page 1
 
@@ -290,9 +175,9 @@ app.layout = html.Div([
                     #html.H5(
                     ##
                     #    dict["title"] + " 4-D Report lo"),
-                    html.H5(id='title'),
+                    html.H5(first_dict["title_output"], id='title'),
 
-                    html.H6(id='location',
+                    html.H6(first_dict["location_output"], id='location',
                             style={'color': '#7F90AC'}),
                     html.Div([
 
@@ -300,7 +185,7 @@ app.layout = html.Div([
                         html.Div([
                             dcc.Dropdown(
                                 id='locas',
-                                options=[{'label': r, 'value': i} for r,i in zip(available_locations,codes_df[codes_df["address"].isin(available_locations)]["small"])],
+                                options=first_dict["locas_output"],
                                 value="All",
                                 clearable=False,
                                 className="dropper",
@@ -317,8 +202,8 @@ app.layout = html.Div([
                         html.Div([
                             dcc.Dropdown(
                                 id='benchy',
-                                options=[{'label': r, 'value': i} for r, i in tickers_bench.items()],
                                 #value=bench_start,
+                                options=first_dict["benchy_output"],
                                 clearable=False,
                                 className="dropper",
                                 placeholder="Select Benchmark"
@@ -358,7 +243,7 @@ app.layout = html.Div([
 
                 html.Div([
 
-                    html.H6(id="profile",className="gs-header gs-text-header padded"),
+                    html.H6(first_dict["profile_output"], id="profile",className="gs-header gs-text-header padded"),
 
                     html.Strong("Employees pg 4"),
                     html.P(dict["employees"],
@@ -385,7 +270,7 @@ app.layout = html.Div([
                     #html.Iframe(src="https://plot.ly/~snowde/36.embed?modebar=false&link=false&autosize=true", \
                     #            seamless="seamless", style={'border': '0', 'width': "100%", 'height': "250"}),
 
-                dcc.Graph(
+                dcc.Graph(figure = stock_plot_output,
                     id='stock_plot',style={'border': '0', 'width': "100%", 'height': "250"},
                     config={'displayModeBar': False}
                 )
@@ -401,30 +286,30 @@ app.layout = html.Div([
 
                     html.H6('Stakeholder Metrics',
                             className="gs-header gs-text-header padded"),
-                    html.Table(make_dash_table(s_metrics_df), style={'marginBottom': 5},
+                    html.Table(make_dash_table(first_dict["s_metrics_df_output"]), id="s_metrics_df", style={'marginBottom': 5},
                                className='tiny-header'),
                     html.P("E - Employees; C - Customer; S - Shareholders; M - Management; A - Average; BA - Benchmark Average", style={'font-size': '60%', 'marginTop': 5}),
                     html.H6('Company Metrics',
                             className="gs-header gs-text-header padded"),
-                    html.Table(make_dash_table(c_metrics_df), style={'marginBottom': 5},
+                    html.Table(make_dash_table(first_dict["c_metrics_df_output"]), id="c_metrics_df", style={'marginBottom': 5},
                                className='tiny-header'),
                 ], className="four columns"),
 
 
 
                 html.Div([
-                    html.P(id='stock_plot_desc', style={"padding-top":"1.2mm"}),
+                    html.P(first_dict["stock_plot_desc_output"],id='stock_plot_desc', style={"padding-top":"1.2mm"}),
                 ], className="eight columns"),
                 html.Div([
 
                     html.H6("Financial Performance",
                             className="gs-header gs-table-header padded"),
-                    html.Table(modifed_perf_table,id="mgmt_perf", className="reversed")
+                    html.Table(mgmt_perf_output,id="mgmt_perf", className="reversed")
                 ], className="eight columns"),
 
             ], className="row "),
 
-            # Row 3#
+            # Row 3##
 
 
         ], className="subpage"),
@@ -499,12 +384,12 @@ app.layout = html.Div([
 
                         html.H6('Stakeholder Metrics',
                                 className="gs-header gs-text-header padded"),
-                        html.Table(make_dash_table(s_metrics_df), style={'marginBottom': 5},
+                        html.Table( id="s_metrics_df_1", style={'marginBottom': 5},
                                    className='tiny-header'),
                         html.P("E - Employees; C - Customer; S - Shareholders; M - Management; A - Average; BA - Benchmark Average", style={'font-size': '60%', 'marginTop': 5}),
                         html.H6('Financial Metrics',
                                 className="gs-header gs-text-header padded"),
-                        html.Table(make_dash_table(c_metrics_df), style={'marginBottom': 5},
+                        html.Table(id="c_metrics_df_1", style={'marginBottom': 5},
                                    className='tiny-header'),
                     ], className="four columns"),
 
@@ -513,7 +398,7 @@ app.layout = html.Div([
 
                         html.H6("Management Performance",
                                 className="gs-header gs-table-header padded"),
-                        html.Table(modifed_perf_table,id="mgmt_perf", className="reversed")
+                        html.Table(id="mgmt_perf_1", className="reversed")
                     ], className="eight columns"),
 
                 ], className="row "),
@@ -560,7 +445,7 @@ app.layout = html.Div([
                     html.H6(["Competitor Analysis"],
                             className="gs-header gs-table-header padded") ]),
 
-            dcc.Graph(figure=pf.figs_polar(ticker_start,"bench", ticker_start), config={'displayModeBar': False}, id='comp_plot',style={'border': '0', 'width': "100%", 'height': "250"}),
+            dcc.Graph(config={'displayModeBar': False}, id='comp_plot',style={'border': '0', 'width': "100%", 'height': "250"}),
 
 
         ], className="subpage"),
@@ -755,15 +640,15 @@ html.Div([  # page 5
                 html.Div([
                     html.H6('Financial Information',
                             className="gs-header gs-text-header padded"),
-                    html.Table(make_dash_table(df_fund_info), id="table1"),
+                    html.Table(id="df_fund_info"),
 
                     html.H6('Fund Characteristics',
                             className="gs-header gs-text-header padded"),
-                    html.Table(make_dash_table(df_fund_characteristics)),
+                    html.Table(id="df_fund_characteristics"),
 
                     html.H6('Fund Facts',
                             className="gs-header gs-text-header padded"),
-                    html.Table(make_dash_table(df_fund_facts)),
+                    html.Table(id="df_fund_facts"),
 
                 ], className="four columns"),
 
@@ -777,7 +662,7 @@ html.Div([  # page 5
 
                     html.H6('Country Bond Allocation (%)',
                             className="gs-header gs-table-header padded"),
-                    html.Table(make_dash_table(df_bond_allocation)),
+                    html.Table(id="df_bond_allocation"),
 
                 ], className="four columns"),
 
@@ -882,124 +767,298 @@ for js in external_js:
 #
 # Call Backs
 
-@app.callback(
-    dash.dependencies.Output('stock_plot', 'figure'),
-    [dash.dependencies.Input('locas', 'value'),
+
+
+
+@app.callback(Output('intermediate-value', 'children'),
+      [dash.dependencies.Input('locas', 'value'),
      dash.dependencies.Input('benchy', 'value'),
-     dash.dependencies.Input('button_swap', 'n_clicks'),
+     dash.dependencies.Input('button_swap', 'n_clicks')],
+    [dash.dependencies.State('intermediate-value', 'children')])
+
+def clean_data(the_location, the_benchmark, clicks,riffy):
+     # some expensive clean data step
+
+     code_start = input_fields[input_fields["starting"] == 1]["code_or_ticker"].reset_index(drop=True)[0]
+
+     code_start_small = input_fields[input_fields["code_or_ticker"]==code_start]["yelp_name"].reset_index(drop=True)[0]
+
+     bench_start = input_fields[input_fields["starting"] == 2]["code_or_ticker"].reset_index(drop=True)[0]
+
+     bench_start_small = input_fields[input_fields["code_or_ticker"]==bench_start]["yelp_name"].reset_index(drop=True)[0]
+
+     ## Starting here
+
+     #location_start = "2231 State Hwy 6, Sugar Land, TX 77478"
+
+     #small_loc = "Sugar-Land"
+     #first_option_coy.title()
+
+     if clicks % 2 == 0:
+         if not all((the_benchmark, the_location)):
+             the_location = first_dict["first_option_coy_output"].title()
+             the_benchmark = bench_start
+
+         else:
+             the_benchmark = the_benchmark
+
+     else:
+         temp = code_start  # The old switcheroo.#
+         code_start = the_benchmark
+         the_benchmark = temp
+         code_start_small = input_fields[input_fields["code_or_ticker"] == code_start]["yelp_name"].reset_index(drop=True)[0]
+     temp_df = pd.DataFrame()
+     temp_df["available_locations"] = dict_all_coll[code_start]["Full Address"]
+     temp_df["a_small_names"] = dict_all_coll[code_start]["Adapted Small Name"]
+
+     if clicks == 1:
+         the_location = temp_df["a_small_names"][0]
+
+
+     brad = 0
+     if clicks > 0:
+         riffy = json.loads(riffy)
+         brad = riffy["clicks"] - clicks
+
+     if brad != 0:
+         the_location = temp_df["a_small_names"][0]
+
+
+     long_addy = temp_df[temp_df["a_small_names"] == the_location]["available_locations"].reset_index(drop=True)[0]
+
+     temp_df = pd.DataFrame()
+     temp_df["available_locations"] = dict_all_coll[code_start]["Available Benchmark"]
+     temp_df["a_small_names"] = dict_all_coll[code_start]["Available Benchmark Small Name"]
+
+     ##bench_small = temp_df[temp_df["available_locations"] == the_benchmark]["a_small_names"].reset_index(drop=True)[0]
+     ##  "bench_small":bench_small,
+     diffy = {'long_addy':long_addy,'bench_start_small':bench_start_small,"code_start_small":code_start_small,'the_location':the_location, 'the_benchmark':the_benchmark, 'code_start':code_start, 'clicks':clicks}
+
+     return json.dumps(diffy)
+
+
+
+
+@app.callback(Output('locas', 'options'),
+     [dash.dependencies.Input('intermediate-value', 'children'),
+      dash.dependencies.Input('button_swap', 'n_clicks')
      ])
 
-def update_fig(the_location, the_benchmark, clicks):
-    if clicks % 2 == 0:
-        if not all((the_benchmark, the_location)):
-            the_benchmark = bench_start
-            the_location = location_start
-            fig = figs(ticker_start,bench_start,the_location, the_benchmark, False)
-        else:
-            fig = figs(ticker_start, bench_start, the_location, the_benchmark, False)
-    else:
-        fig = figs(ticker_start,bench_start,the_benchmark, the_location, True)
+def dadr(diffy, clicks):
+    diffy = json.loads(diffy)
+
+    available_locations = dict_all_coll[diffy["code_start"]]["Full Address"]
+    a_small_names = dict_all_coll[diffy["code_start"]]["Adapted Small Name"]
+
+    return [{'label': r, 'value': i} for r,i in zip(available_locations,a_small_names)]
+
+#############  This can change the benchmark dropdown.
+"""
+@app.callback(Output('benchy', 'options'),
+     [dash.dependencies.Input('intermediate-value', 'children'),
+     ])
+
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    available_locations = dict_all_coll[diffy["code_start"]]["Available Benchmark"]
+    a_small_names = dict_all_coll[diffy["code_start"]]["Available Benchmark Small Name"]
+
+    return [{'label': r, 'value': i} for r,i in zip(a_small_names,available_locations)]
+"""
+
+
+# Tables#
+@app.callback(Output('s_metrics_df', 'children'),
+     [dash.dependencies.Input('locas', 'value'),
+      dash.dependencies.Input('intermediate-value', 'children'),
+     ])
+def dadr(locas, diffy):
+    diffy = json.loads(diffy)
+    s_metrics_df = dict_all_coll[diffy["code_start"]]["Stakeholder Metrics"]
+    return make_dash_table(s_metrics_df)
+
+@app.callback(Output('s_metrics_df_1', 'children'),
+     [dash.dependencies.Input('locas', 'value'),
+      dash.dependencies.Input('intermediate-value', 'children'),
+     ])
+def dadr(locas, diffy):
+    diffy = json.loads(diffy)
+    s_metrics_df = dict_all_coll[diffy["code_start"]]["Stakeholder Metrics"]
+    return make_dash_table(s_metrics_df)
+
+
+
+@app.callback(Output('c_metrics_df', 'children'),
+     [dash.dependencies.Input('intermediate-value', 'children'),
+     ])
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    c_metrics_df = dict_all_coll[diffy["code_start"]]["Company Metrics"]
+    return make_dash_table(c_metrics_df)
+
+
+@app.callback(Output('c_metrics_df_1', 'children'),
+     [dash.dependencies.Input('intermediate-value', 'children'),
+     ])
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    c_metrics_df = dict_all_coll[diffy["code_start"]]["Company Metrics"]
+    return make_dash_table(c_metrics_df)
+
+
+@app.callback(Output('df_fund_info', 'children'),
+     [dash.dependencies.Input('intermediate-value', 'children'),
+     ])
+def dadr(diffy):
+    df_fund_info = pd.read_csv('https://plot.ly/~jackp/17544/.csv')
+
+    return make_dash_table(df_fund_info)
+
+
+@app.callback(Output('df_fund_characteristics', 'children'),
+              [dash.dependencies.Input('intermediate-value', 'children'),
+               ])
+def dadr(diffy):
+    df_fund_characteristics = pd.read_csv('https://plot.ly/~jackp/17542/.csv')
+
+    return make_dash_table(df_fund_characteristics)
+
+
+@app.callback(Output('df_fund_facts', 'children'),
+              [dash.dependencies.Input('intermediate-value', 'children'),
+               ])
+def dadr(diffy):
+    df_fund_facts = pd.read_csv('https://plot.ly/~jackp/17540/.csv')
+
+    return make_dash_table(df_fund_facts)
+
+
+@app.callback(Output('df_bond_allocation', 'children'),
+              [dash.dependencies.Input('intermediate-value', 'children'),
+               ])
+def dadr(diffy):
+    df_bond_allocation = pd.read_csv('https://plot.ly/~jackp/17538/')
+
+    return make_dash_table(df_bond_allocation)
+
+
+@app.callback(Output('comp_plot', 'figure'),
+     [dash.dependencies.Input('intermediate-value', 'children'),
+     ])
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    figure=pf.figs_polar(diffy["code_start"], "bench", diffy["code_start"])
+
+    return figure
+
+
+@app.callback(
+    dash.dependencies.Output('stock_plot', 'figure'),
+    [dash.dependencies.Input('intermediate-value', 'children')
+     ])
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    fig = figs(diffy["code_start"], diffy["the_benchmark"])
     return fig
 
 
 @app.callback(
     dash.dependencies.Output('stock_plot_desc', 'children'),
-    [dash.dependencies.Input('locas', 'value'),
-     dash.dependencies.Input('benchy', 'value'),
-     dash.dependencies.Input('button_swap', 'n_clicks'),
+    [dash.dependencies.Input('intermediate-value', 'children')
      ])
 
-def update_desc(the_location, the_benchmark, clicks):
-    if clicks % 2 == 0:
-        if not all((the_benchmark,the_location)):
-            the_benchmark = bench_start
-            the_location = location_start
-            desc = describe(ticker_start,bench_start,the_location, the_benchmark, False)
-        else:
-            desc = describe(ticker_start,bench_start,the_location, the_benchmark, False)
-    else:
-        desc = describe(ticker_start,bench_start, the_location,the_benchmark, True)
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    desc = describe(diffy["code_start"], diffy["the_benchmark"])
     return desc
 
 
 @app.callback(
     dash.dependencies.Output('title', 'children'),
-    [dash.dependencies.Input('locas', 'value'),
-     dash.dependencies.Input('benchy', 'value'),
-     dash.dependencies.Input('button_swap', 'n_clicks'),
+    [dash.dependencies.Input('intermediate-value', 'children')
      ])
 
-def update_title(the_location, the_benchmark, clicks):
-    if clicks % 2 == 0:
-        title = dict["title"] + " 4-D Reports"
-    else:
-        title = str(the_benchmark) + " 4-D Report"
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    title = str(diffy["code_start_small"]) + " 4-D Report"
     return title
+
 
 @app.callback(
     dash.dependencies.Output('location', 'children'),
-    [dash.dependencies.Input('locas', 'value'),
-     dash.dependencies.Input('benchy', 'value'),
-     dash.dependencies.Input('button_swap', 'n_clicks'),
+    [dash.dependencies.Input('intermediate-value', 'children')
      ])
 
-def update_title(the_location, the_benchmark, clicks):
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    #print(diffy["dict_comp"])
+    #print(diffy["the_location"])
+    title = str(diffy["long_addy"]) + " Location"
 
-    if clicks % 2 == 0:
-        if not all((the_benchmark, the_location)):
-            the_benchmark = bench_start
-            the_location = location_start
-            addy = codes_df[codes_df["small"] == the_location]["address"].reset_index(drop=True)[0]
-            title = str(addy) + " Location"
-        else:
-            addy = codes_df[codes_df["small"] == the_location]["address"].reset_index(drop=True)[0]
-            title = str(addy) + " Location"
-
-
-    else:
-        title = str(the_benchmark) + " Location"
     return title
 
-###
+
+
 @app.callback(
     dash.dependencies.Output('profile', 'children'),
-    [dash.dependencies.Input('locas', 'value'),
-     dash.dependencies.Input('benchy', 'value'),
-     dash.dependencies.Input('button_swap', 'n_clicks'),
+    [dash.dependencies.Input('intermediate-value', 'children')
      ])
 
-def update_title(the_location, the_benchmark, clicks):
-    if clicks % 2 == 0:
-        if not all((the_benchmark, the_location)):
-            the_benchmark = bench_start
-            the_location = location_start
-            title = small_loc + " Profile"
-        else:
-            title = str(the_location) + " Profile"
-    else:
-        title = str(the_benchmark) + " Profile"
-    return title
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    title = str(diffy["the_location"]) + " Profile"
 
+    return title
 ###
+
+
 @app.callback(
     dash.dependencies.Output('mgmt_perf', 'children'),
-    [dash.dependencies.Input('locas', 'value'),
-     dash.dependencies.Input('benchy', 'value'),
-     dash.dependencies.Input('button_swap', 'n_clicks'),
+    [dash.dependencies.Input('intermediate-value', 'children')
      ])
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    df_perf_summary = fm.fin_met(diffy["the_benchmark"], diffy["code_start"])
 
-def update_table(the_location, the_benchmark, clicks):
-    if clicks % 2 == 0:
-        if not all((the_benchmark, the_location)):
-            df_perf_summary = fm.fin_met(ticker_start, tickers_bench[the_benchmark])
-        else:
-            the_location = location_start
-            the_benchmark = bench_start
-            df_perf_summary = fm.fin_met(ticker_start, the_benchmark)
+    def make_dash_table(df):
+        ''' Return a dash definitio of an HTML table for a Pandas dataframe '''
+        table = []
+        for index, row in df.iterrows():
+            html_row = []
+            for i in range(len(row)):
+                html_row.append(html.Td([row[i]]))
+            table.append(html.Tr(html_row))
+        return table
 
+    modifed_perf_table = make_dash_table(df_perf_summary)
 
-    else:
-        df_perf_summary = fm.fin_met(tickers_bench[the_benchmark], ticker_start)
+    modifed_perf_table.insert(
+        0, html.Tr([
+            html.Td([]),
+            html.Td(['Company'], colSpan=4, style={'text-align': "center"}),
+            html.Td(['Benchmark'], colSpan=4, style={'text-align': "center"})
+        ], style={'background': 'white', 'font-weight': '600'}
+        )
+    )
+    return modifed_perf_table
+#
+
+@app.callback(
+    dash.dependencies.Output('mgmt_perf_1', 'children'),
+    [dash.dependencies.Input('intermediate-value', 'children')
+     ])
+def dadr(diffy):
+    diffy = json.loads(diffy)
+    df_perf_summary = fm.fin_met(diffy["the_benchmark"], diffy["code_start"])
+    def make_dash_table(df):
+        ''' Return a dash definitio of an HTML table for a Pandas dataframe '''
+        table = []
+        for index, row in df.iterrows():
+            html_row = []
+            for i in range(len(row)):
+                html_row.append(html.Td([row[i]]))
+            table.append(html.Tr(html_row))
+        return table
 
     modifed_perf_table = make_dash_table(df_perf_summary)
 
@@ -1015,12 +1074,14 @@ def update_table(the_location, the_benchmark, clicks):
 
 @app.callback(
     Output('filtered-content', 'children'),
-    [Input('category-filter', 'value'),
+    [dash.dependencies.Input('intermediate-value', 'children'),
+     Input('category-filter', 'value'),
      Input('request', 'value'),
      Input('study', 'value'),
      Input('bench', 'value')])
-def filter( var, req, stu, ben):
-
+def filter(diffy ,var, req, stu, ben):
+    diffy = json.loads(diffy)
+    dict_frames = dict_all_coll[diffy["code_start"]]["Stock Dictionary"]
     df = dict_frames[ben, req, stu]
 
     highlight = list(df.drop("year",axis=1).columns.values)
@@ -1041,12 +1102,14 @@ def filter( var, req, stu, ben):
 ###
 @app.callback(
     Output('category-filter', 'options'),
-    [Input('request', 'value'),
+    [dash.dependencies.Input('intermediate-value', 'children'),
+     Input('request', 'value'),
      Input('study', 'value'),
      Input('bench', 'value')])
-def filter(req, stu, ben):
+def filter(diffy,req, stu, ben):
     # print(per, req, stu, ben)
-
+    diffy = json.loads(diffy)
+    dict_frames =  dict_all_coll[diffy["code_start"]]["Stock Dictionary"]
     df = dict_frames[ben, req, stu]
     highlight = list(df.drop("year", axis=1).columns.values)
 
@@ -1055,17 +1118,24 @@ def filter(req, stu, ben):
 
 @app.callback(
     Output('first_tree', 'figure'),
-    [Input('request', 'value'),
+    [dash.dependencies.Input('intermediate-value', 'children'),
+     Input('request', 'value'),
      ])
-def filter(req):
+def filter(diffy, req):
+    diffy = json.loads(diffy)
+    dict_frames =  dict_all_coll[diffy["code_start"]]["Stock Dictionary"]
     df = dict_frames["BJRI", req, "Original"]
     return tm.treemap(df)
 ###
 @app.callback(
     Output('third_tree', 'figure'),
-    [Input('request', 'value'),
+    [dash.dependencies.Input('intermediate-value', 'children'),
+    Input('request', 'value'),
      ])
-def filter(req):
+def filter(diffy, req):
+    diffy = json.loads(diffy)
+    bench_start = diffy["the_benchmark"]
+    dict_frames = dict_all_coll[diffy["code_start"]]["Stock Dictionary"]
     df = dict_frames[bench_start, req, "Original"]
     return tm.treemap(df)
 
@@ -1081,7 +1151,7 @@ def filter2( goo, time, many, norm, bench):
 
     figure = gc.chart_gd(goo, time, many, norm, bench)
 
-##
+###
     return figure
 
 @app.callback(
@@ -1096,121 +1166,159 @@ def filter2( goo, time, many, norm, bench):
 
     figure = gc.sum_gd(goo, time, many, norm, bench)
     return figure
-###
+####
 
-@app.callback(Output('tab-output', 'children'), [Input('tabs', 'value')])
-def display_content(value):
 
-    layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_overall, config={'displayModeBar': False},
+@app.callback(Output('tab-output', 'children'),
+              [Input('intermediate-value', 'children'),
+               Input('tabs', 'value')])
+def display_content(diffy ,value):
+    diffy = json.loads(diffy)
+    code_start = diffy["code_start"]
+    d = cr.dic(code_start)
+    layout = html.Div([dcc.Graph(id='rating_chart', figure=d["fig_overall"], config={'displayModeBar': False},
                                  style={"margin-top": "0mm"})])
     if value == "Overall":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_overall, config={'displayModeBar': False},
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=d["fig_overall"], config={'displayModeBar': False},
                                      style={"margin-top": "0mm"})])
     elif value == "Employee":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_emp, config={'displayModeBar': False},
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=d["fig_emp"], config={'displayModeBar': False},
                                      style={"margin-top": "0mm"})])
     elif value == "Management":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_mgm, config={'displayModeBar': False},
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=d["fig_mgm"], config={'displayModeBar': False},
                                      style={"margin-top": "0mm"})])
     elif value == "Shareholders":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_sha, config={'displayModeBar': False},
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=d["fig_sha"], config={'displayModeBar': False},
                                      style={"margin-top": "0mm"})])
     elif value == "Customers":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_cus, config={'displayModeBar': False},
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=d["fig_cus"], config={'displayModeBar': False},
                                      style={"margin-top": "0mm"})])
     elif value == "Search":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_search, config={'displayModeBar': False},
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=d["fig_search"], config={'displayModeBar': False},
                                      style={"margin-top": "0mm"})])
 
 
     return layout
 
 
-@app.callback(Output('tab-output-employee', 'children'), [Input('tabs-employee', 'value')])
-def display_content(value):
-
-    layout = el.interview_layout
+@app.callback(Output('tab-output-employee', 'children'),
+              [Input('intermediate-value', 'children'),
+                Input('tabs-employee', 'value')])
+def display_content(diffy, value):
+    diffy = json.loads(diffy)
+    code_start = diffy["code_start"]
+    d = el.dic(code_start)
+    l = ll.dic(code_start)
+    c = cl.dic(code_start)
+    cra = cr.dic(code_start)
+    layout = d["interview_layout"]
 
     if value== "Interview":
-        layout = el.interview_layout
+        layout = d["interview_layout"]
     elif value== "Sentiment":
-        layout = ll.language_layout
+        layout = l["language layout"]
     elif value== "Compensation":
-        layout = cl.compensation_layout
+        layout = c["compensation_layout"]
     elif value== "Job Map":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_cus, config={'displayModeBar': False},
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=cra["fig_cus"], config={'displayModeBar': False},
                         style={"margin-top": "0mm"})])
     elif value== "Search":
-        layout = html.Div([dcc.Graph(id='rating_chart', figure=cr.fig_search, config={'displayModeBar': False},
+        layout = html.Div([dcc.Graph(id='rating_chart', figure=cra["fig_search"], config={'displayModeBar': False},
                         style={"margin-top": "0mm"})])
+
 
 
     return layout
 
 ## Here
 
-@app.callback(Output('tab-output-customer', 'children'), [Input('tabs-customer', 'value')])
-def display_content(value):
+@app.callback(Output('tab-output-customer', 'children'),
+              [Input('intermediate-value', 'children'),
+               Input('tabs-customer', 'value')])
+def display_content(diffy, value):
+
+    diffy = json.loads(diffy)
+    code_start = diffy["code_start"]
+    d = el.dic(code_start)
+    l = ll.dic(code_start)
+    c = cl.dic(code_start)
 
     layout = inl.info_layout
 
     if value== "Infographic":
         layout = inl.info_layout
     elif value== "Map":
-        layout = ll.language_layout
+        layout = l["language_layout"]
     elif value== "Sentiment":
-        layout = cl.compensation_layout
+        layout = c["compensation_layout"]
 
 
     return layout
 
 
 
-@app.callback(Output('tab-output-interview-bottom', 'children'), [Input('tabs-interview-bottom', 'value')])
-def display_content(value):
-
-    layout = el.interview_layout_accepted
+@app.callback(Output('tab-output-interview-bottom', 'children'),
+              [Input('intermediate-value', 'children'),
+              Input('tabs-interview-bottom', 'value')])
+def display_content(diffy, value):
+    diffy = json.loads(diffy)
+    code_start = diffy["code_start"]
+    d = el.dic(code_start)
+    layout = d["interview_layout_accepted"]
 
     if value== "Accepted":
-        layout = el.interview_layout_accepted
+        layout = d["interview_layout_accepted"]
     elif value== "Positive":
-        layout = el.interview_layout_positive
+        layout = d["interview_layout_positive"]
     elif value== "Negative":
-        layout = el.interview_layout_negative
+        layout = d["interview_layout_negative"]
     elif value== "Difficult":
-        layout = el.interview_layout_difficult
+        layout = d["interview_layout_difficult"]
     elif value== "Easy":
-        layout = el.interview_layout_easy
+        layout = d["interview_layout_easy"]
 
     return layout
 
-@app.callback(Output('tab-output-language', 'children'), [Input('tabs-language', 'value')])
-def display_content(value):
+@app.callback(Output('tab-output-language', 'children'),
+              [Input('intermediate-value', 'children'),
+               Input('tabs-language', 'value')])
+def display_content(diffy, value):
+    diffy = json.loads(diffy)
+    code_start = diffy["code_start"]
+    d = el.dic(code_start)
+    l = ll.dic(code_start)
+    c = cl.dic(code_start)
 
-    layout = ll.four_figs_layout
+    layout = l["four_figs_layout"]
 
     if value== "Noun":
-        layout = ll.four_figs_layout
+        layout = l["four_figs_layout"]
     elif value== "Phrase":
-        layout = ll.phrase_layout
+        layout = l["phrase_layout"]
     elif value== "Sentiment":
-        layout = el.interview_layout_negative
+        layout = d["interview_layout_negative"]
     elif value== "Map":
-        layout = el.interview_layout_easy
+        layout = d["interview_layout_easy"]
 
     return layout
 
-@app.callback(Output('tab-output-compensation', 'children'), [Input('tabs-compensation', 'value')])
-def display_content(value):
+@app.callback(Output('tab-output-compensation', 'children'),
+              [Input('intermediate-value', 'children'),
+               Input('tabs-compensation', 'value')])
+def display_content(diffy, value):
+    diffy = json.loads(diffy)
+    code_start = diffy["code_start"]
+    l = ll.dic(code_start)
+    c = cl.dic(code_start)
 
-    layout = ll.four_figs_layout
+    layout = l["four_figs_layout"]
 
     if value== "Benefits":
-        layout = cl.benefits_layout
+        layout = c["benefits_layout"]
     elif value== "Salaries":
-        layout = cl.benefits_layout
+        layout = c["benefits_layout"]
     elif value== "Third":
-        layout = cl.benefits_layout
+        layout = c["benefits_layout"]
 
 
     return layout

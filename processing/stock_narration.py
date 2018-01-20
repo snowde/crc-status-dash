@@ -15,19 +15,20 @@ path_in = os.path.join(my_path, "../data/stock/")
 #for t in tick:
 
 
-def describe(ticker_start,bench_start,loca,bench,swap):
-
-    tick = " (BJRI) "
-    company = "BJ's"
-    company_org = "BJ's"
-
+def describe(code_start,bench_start):
 
     my_path = os.path.abspath(os.path.dirname(__file__))
     path = os.path.join(my_path, "../input_fields.csv")
 
     input_fields = pd.read_csv(path)
 
-    codes = input_fields["code_or_ticker"]
+    company = input_fields[input_fields["code_or_ticker"]==code_start]["short_name"].reset_index(drop=True)[0]
+
+    company_org = input_fields[input_fields["code_or_ticker"]==code_start]["short_name"].reset_index(drop=True)[0]
+
+
+    tick = " (" + input_fields[input_fields["code_or_ticker"]==code_start]["ticker"].reset_index(drop=True)[0] + ") "
+
 
     path = os.path.join(my_path, "../data/stock/")
 
@@ -35,40 +36,30 @@ def describe(ticker_start,bench_start,loca,bench,swap):
 
     #    ben_frs_dict[value] =
 
-    if swap==True:
-        df_tick = pd.read_csv(path + bench_start +"_tick_df.csv")
-        df_final = pd.read_csv(path + ticker_start +"_tick_df.csv")
-        tick=" "
-        bench = company
-        company = loca +"'s"
-        company_org = loca
+    df_com = pd.read_csv(path + code_start + "_tick_df.csv")
+    df_ben = pd.read_csv(path + bench_start + "_tick_df.csv")
 
-
-    else:
-        df_tick = pd.read_csv(path + ticker_start +"_tick_df.csv")
-        df_final = pd.read_csv(path + bench_start +"_tick_df.csv")
-
-    date_old_str = df_final["date"].head(1).values[0]
+    date_old_str = df_ben["date"].head(1).values[0]
 
     s = str(date_old_str)
     days = datetime.now() - datetime(year=int(s[0:4]), month=int(s[5:7]), day=int(s[8:10]))
 
     years_i = round(days.days / 365)
 
-    df_final["date"] = pd.to_datetime(df_final["date"], format="%Y-%m-%d")
-    df_tick["date"] = pd.to_datetime(df_tick["date"], format="%Y-%m-%d")
+    df_ben["date"] = pd.to_datetime(df_ben["date"], format="%Y-%m-%d")
+    df_com["date"] = pd.to_datetime(df_com["date"], format="%Y-%m-%d")
 
     p = inflect.engine()
     years_s = p.number_to_words(years_i)
 
 
 
-    close_comp = df_final["close"].tail(1).values[0]
-    open_comp = df_final["close"].head(1).values[0]
+    close_comp = df_ben["close"].tail(1).values[0]
+    open_comp = df_ben["close"].head(1).values[0]
     cagr_comp = ((close_comp / open_comp) ** (1 / (days.days / 365)) - 1) * 100
 
-    close_tick = df_tick["close"].tail(1).values[0]
-    open_tick = df_tick["close"].head(1).values[0]
+    close_tick = df_com["close"].tail(1).values[0]
+    open_tick = df_com["close"].head(1).values[0]
     cagr_tick = ((close_tick / open_tick) ** (1 / (days.days / 365)) - 1) * 100
 
     now = datetime.now()
@@ -82,17 +73,17 @@ def describe(ticker_start,bench_start,loca,bench,swap):
 
         #tick_df["date"] = pd.to_datetime(tick_df["date"], format="%Y-%m-%d")
 
-        diff = (df_tick.date - last_year)
+        diff = (df_com.date - last_year)
 
         indexmax = (diff[(diff < pd.to_timedelta(0))].idxmax())
 
-        last_year_price_tick = df_tick["close"].ix[[indexmax]].values[0]
+        last_year_price_tick = df_com["close"].ix[[indexmax]].values[0]
 
         ret_y_tick = ((close_tick - last_year_price_tick) / last_year_price_tick) * 100
 
-        df_final["date"] = pd.to_datetime(df_final["date"], format="%Y-%m-%d")
+        df_ben["date"] = pd.to_datetime(df_ben["date"], format="%Y-%m-%d")
 
-        last_year_price_comp = df_final["close"].ix[[indexmax]].values[0]
+        last_year_price_comp = df_ben["close"].ix[[indexmax]].values[0]
 
         ret_y_comp = ((close_comp - last_year_price_comp) / last_year_price_comp) * 100
 
@@ -126,7 +117,7 @@ def describe(ticker_start,bench_start,loca,bench,swap):
 
     line[3.1] = str(round(abs(cagr_comp), 2)) + "% "
     line[3.5] = "negative " if cagr_comp < 0 else "positive "
-    line[4.15] = "return of the benchmark (" + bench + "). "
+    line[4.15] = "return of the benchmark (" + bench_start + "). "
     line[5] = company + " year on year return is "
     line[6] = "negative " if ret_y_tick < 0 else "positive "
     line[7] = str(round(abs(ret_y_tick), 2)) + "% against the benchmark's "

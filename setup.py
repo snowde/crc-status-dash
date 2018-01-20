@@ -20,6 +20,7 @@ import processing.stock_processing.py
 
 """
 
+os.system('scrapy runspider functionality/glassdoor/glassdoor_benefits.py')
 
 
 

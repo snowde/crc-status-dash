@@ -77,7 +77,9 @@ input_fields = pd.read_csv(path)
 
 companies = input_fields["code_or_ticker"]
 
-tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
+#tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
+
+tick  = [x for x in input_fields["code_or_ticker"]]
 code  = [x for x in input_fields["code_or_ticker"]]
 
 year = int(2008)

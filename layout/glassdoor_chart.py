@@ -17,6 +17,8 @@ my_path = os.path.abspath(os.path.dirname(__file__))
 path_2 = os.path.join(my_path, "../input_fields.csv")
 path_in_ngrams = os.path.join(my_path, "../data/ngrams/")
 
+input_fields = pd.read_csv(path_2)
+
 
 
 def sum_gd(k, time_s, many, norm, bench):
@@ -109,7 +111,8 @@ def chart_gd(k, time_s, many, norm, bench):
     fig = dict(data=data, layout=layout)
     return fig
 
-layout = html.Div([
+def layout(code):
+    return html.Div([
 
     html.Div([
 
@@ -165,8 +168,8 @@ layout = html.Div([
             dcc.Dropdown(
                 id='bencher',
                 options=[{'label': r, 'value': v} for r, v in
-                         zip(["BJ's", "Chipotle", "Cheese Cake"], ["bjs_gd","chp_gd","cft_gd"])],
-                value="bjs_gd",
+                         zip(input_fields["short_name"], [input_fields["code_or_ticker"]])],
+                #value="bjs_gd",
                 clearable=False,
                 className="dropper"
             )

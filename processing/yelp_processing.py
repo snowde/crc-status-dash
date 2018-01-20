@@ -10,14 +10,9 @@ path = os.path.join(my_path, "../input_fields.csv")
 
 input_fields = pd.read_csv(path)
 
-code  = input_fields["code_or_ticker"]
-
-
 from os import listdir
 from os.path import isfile, join
 
-
-tick  = [x for x in input_fields[input_fields["ticker"]!="PE"].ticker]
 
 code = input_fields["code_or_ticker"]
 

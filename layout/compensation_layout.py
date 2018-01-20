@@ -9,55 +9,62 @@ import pandas as pd
 
 my_path = os.path.abspath(os.path.dirname(__file__))
 path_2 = os.path.join(my_path, "../input_fields.csv")
-path_in_cpickle = os.path.join(my_path, "../data/cpickle/")
+path_in_cpickle = os.path.join(my_path, "../data/interviews/")
 
 #input_fields = pd.read_csv(path)
 
-#code = input_fields["code_or_ticker"]
+#code = input_fields["code_or_ticker"]#
 
-p = "BJRI"
+def dic(code):
 
-dict_ben = pickle.load(open(path_in_cpickle + p + "_gd_dict_ben.p", "rb"))
+    p = code
+    p = "BJRI"
 
-benefits_layout =   \
-    html.Div([
-        html.Div([dcc.Graph(id='benefits_chart', figure=cr.fig_ben, config={'displayModeBar': False},
-                                style={'position': 'relative', 'top': '-45px','bottom': '0px','left': '0px'})]
-                 , style={'width': '100%', 'height': '430px', 'overflow': 'hidden'}),
-
+    dict_ben = pickle.load(open(path_in_cpickle + p + "_benefits.p", "rb"))
+    d = cr.dic(p)
+    benefits_layout =   \
         html.Div([
-
-            html.H5("Positive Summary"),
-            html.Div([dcc.Textarea(id='pos_int_sum', placeholder='Summary', value=dict_ben["positive"], style={'width': '100%', 'height':'115px'}
-                            ),], style={'padding-top':'25px','clear':'both'}),
-
-            html.H5("Negative Summary"),
-            html.Div([dcc.Textarea(id='pos_int_sum', placeholder='Summary', value=dict_ben["negative"],
-                                   style={'width': '100%', 'height': '115px'}
-                                   ), ], style={'padding-top': '25px', 'clear': 'both'}),
-                 ],style={'position': 'relative', 'top': '-65px','bottom': '0px','left': '0px'})
-
-            ])
-
-
-compensation_layout = html.Div([
+            html.Div([dcc.Graph(id='benefits_chart', figure=d["fig_ben"], config={'displayModeBar': False},
+                                    style={'position': 'relative', 'top': '-45px','bottom': '0px','left': '0px'})]
+                     , style={'width': '100%', 'height': '430px', 'overflow': 'hidden'}),
 
             html.Div([
-                dcc.Tabs(
-                    tabs=[{'label':"Benefits" , 'value':"Benefits" },
-                          {'label':"Salaries" , 'value':"Salaries" },
-                          {'label':"Third" , 'value':"Third" },
-                    ],
-                    value="Benefits",
-                    id='tabs-compensation'
-                ),
-                html.Div(benefits_layout, id='tab-output-compensation')
-                    ], style={
-                        'width': '100%',
-                        'fontFamily': 'Sans-Serif',
-                        'margin-left': 'auto',
-                        'margin-right': 'auto'
-                    }),])
 
+                html.H5("Positive Summary"),
+                html.Div([dcc.Textarea(id='pos_int_sum', placeholder='Summary', value=dict_ben["positive"], style={'width': '100%', 'height':'115px'}
+                                ),], style={'padding-top':'25px','clear':'both'}),
+
+                html.H5("Negative Summary"),
+                html.Div([dcc.Textarea(id='pos_int_sum', placeholder='Summary', value=dict_ben["negative"],
+                                       style={'width': '100%', 'height': '115px'}
+                                       ), ], style={'padding-top': '25px', 'clear': 'both'}),
+                     ],style={'position': 'relative', 'top': '-65px','bottom': '0px','left': '0px'})
+
+                ])
+
+
+    compensation_layout = html.Div([
+
+                html.Div([
+                    dcc.Tabs(
+                        tabs=[{'label':"Benefits" , 'value':"Benefits" },
+                              {'label':"Salaries" , 'value':"Salaries" },
+                              {'label':"Third" , 'value':"Third" },
+                        ],
+                        value="Benefits",
+                        id='tabs-compensation'
+                    ),
+                    html.Div(benefits_layout, id='tab-output-compensation')
+                        ], style={
+                            'width': '100%',
+                            'fontFamily': 'Sans-Serif',
+                            'margin-left': 'auto',
+                            'margin-right': 'auto'
+                        }),])
+
+    dic["benefits_layout"] = benefits_layout
+    dic["compensation_layout"] = compensation_layout
+
+    return dic
 
 
